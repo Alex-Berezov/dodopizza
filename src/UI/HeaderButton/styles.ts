@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+interface CartButtonProps {
+  visible: boolean
+}
 
 export const Root = styled.button`
   display: flex;
@@ -38,8 +42,22 @@ export const Counter = styled.div`
   text-align: center;
 `
 
-export const ArrowImg = styled.img`
+export const ArrowImg = styled.img<CartButtonProps>`
   max-width: 15px;
   color: rgb(255, 255, 255);
   margin-top: 7px;
+  animation: ${({ visible }) => visible && fadeIn} ease 0.3s;
+  transform: translateX(5px);
+`
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(5px);
+  }
 `

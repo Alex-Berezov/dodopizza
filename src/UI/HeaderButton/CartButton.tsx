@@ -15,7 +15,7 @@ const CartButton: FC = () => {
       <Styled.Separator></Styled.Separator>
       <Styled.Counter>
         {hovered ? (
-          <Styled.ArrowImg src={ArrowRight} />
+          <Styled.ArrowImg src={ArrowRight} visible={hovered} />
         ) : (
           <Styled.Text>3</Styled.Text>
         )}
