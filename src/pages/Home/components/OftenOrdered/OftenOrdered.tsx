@@ -1,15 +1,19 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import * as Styled from './styles'
 
 import peperoniFresh from '../../../../assets/images/peperoni-fresh.webp'
+import { ProductModal } from '../ProductModal'
 
 const OftenOrdered: FC = () => {
+  const [activeModal, setActiveModal] = useState(false)
+  const [isPizza, setIsActivePizza] = useState(true)
+
   return (
     <Styled.Root>
       <Styled.H2>Часто заказывают</Styled.H2>
 
       <Styled.Container>
-        <Styled.ContainerItem>
+        <Styled.ContainerItem onClick={() => setActiveModal(true)}>
           <Styled.ContainerItemPicture>
             <Styled.ContainerItemPictureImg src={peperoniFresh} />
           </Styled.ContainerItemPicture>
@@ -65,6 +69,12 @@ const OftenOrdered: FC = () => {
           </Styled.ContainerItemInfo>
         </Styled.ContainerItem>
       </Styled.Container>
+
+      <ProductModal
+        active={activeModal}
+        setActive={setActiveModal}
+        isPizza={isPizza}
+      />
     </Styled.Root>
   )
 }

@@ -22,7 +22,7 @@ export const Root = styled.div<ModalStylesProps>`
 `
 
 export const Content = styled.div<ModalStylesProps>`
-  width: 25vw;
+  /* width: 25vw; */
   padding: 40px 20px;
   border-radius: 12px;
   background-color: white;
