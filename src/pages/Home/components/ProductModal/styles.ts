@@ -36,7 +36,28 @@ export const PizzaImgBlockCircleMedium = styled.div`
 `
 
 export const PizzaInfoBlock = styled.div`
-  min-width: 25rem;
+  width: 25rem;
+  margin-left: 20px;
+`
+
+export const PizzaTitle = styled.h3`
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+  margin: 0px;
+`
+
+export const Characteristics = styled.div`
+  display: flex;
+  color: rgb(92, 99, 112);
+  font-size: 14px;
+  line-height: 20px;
+`
+
+export const Description = styled.div`
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
 `
 
 export const SimpleProduct = styled.div`

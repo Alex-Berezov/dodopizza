@@ -22,11 +22,9 @@ export const Root = styled.div<ModalStylesProps>`
 `
 
 export const Content = styled.div<ModalStylesProps>`
-  /* width: 25vw; */
   padding: 40px 20px;
   border-radius: 12px;
   background-color: white;
-  text-align: center;
   transform: ${(props) => (props.contentActive ? 'scale(1)' : 'scale(0.5)')};
   transition: 0.4s all;
 `

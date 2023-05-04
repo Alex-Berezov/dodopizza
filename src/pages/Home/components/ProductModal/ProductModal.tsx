@@ -22,7 +22,16 @@ const ProductModal: FC<ProductModalProps> = ({
               <Styled.PizzaImgBlockCircleLarge />
               <Styled.PizzaImgBlockCircleMedium />
             </Styled.PizzaImgBlock>
-            <Styled.PizzaInfoBlock>Some info</Styled.PizzaInfoBlock>
+            <Styled.PizzaInfoBlock>
+              <Styled.PizzaTitle>Пепперони фреш</Styled.PizzaTitle>
+              <Styled.Characteristics>
+                30 см, традиционное тесто, 610 г
+              </Styled.Characteristics>
+              <Styled.Description>
+                Пикантная пепперони, увеличенная порция моцареллы, томаты,
+                фирменный томатный соус
+              </Styled.Description>
+            </Styled.PizzaInfoBlock>
           </Styled.Pizza>
         ) : (
           <Styled.Pizza>Simple Product Modal</Styled.Pizza>
