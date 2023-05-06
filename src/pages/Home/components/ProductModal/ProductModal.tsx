@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import * as Styled from './styles'
 import { Modal } from '../../../../UI/Modal'
+import { PizzaModal } from './components/PizzaModal'
 
 interface ProductModalProps {
   active: boolean
@@ -17,24 +18,9 @@ const ProductModal: FC<ProductModalProps> = ({
     <Modal active={active} setActive={setActive}>
       <Styled.Root>
         {isPizza ? (
-          <Styled.Pizza>
-            <Styled.PizzaImgBlock>
-              <Styled.PizzaImgBlockCircleLarge />
-              <Styled.PizzaImgBlockCircleMedium />
-            </Styled.PizzaImgBlock>
-            <Styled.PizzaInfoBlock>
-              <Styled.PizzaTitle>Пепперони фреш</Styled.PizzaTitle>
-              <Styled.Characteristics>
-                30 см, традиционное тесто, 610 г
-              </Styled.Characteristics>
-              <Styled.Description>
-                Пикантная пепперони, увеличенная порция моцареллы, томаты,
-                фирменный томатный соус
-              </Styled.Description>
-            </Styled.PizzaInfoBlock>
-          </Styled.Pizza>
+          <PizzaModal />
         ) : (
-          <Styled.Pizza>Simple Product Modal</Styled.Pizza>
+          <Styled.SimpleProduct>Simple Product Modal</Styled.SimpleProduct>
         )}
       </Styled.Root>
     </Modal>
