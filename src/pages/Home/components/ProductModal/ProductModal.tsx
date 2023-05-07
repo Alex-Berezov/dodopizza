@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import * as Styled from './styles'
 import { Modal } from '../../../../UI/Modal'
 import { PizzaModal } from './components/PizzaModal'
+import SimpleProductModal from './components/SimpleProductModal/SimpleProductModal'
 
 interface ProductModalProps {
   active: boolean
@@ -17,11 +18,7 @@ const ProductModal: FC<ProductModalProps> = ({
   return (
     <Modal active={active} setActive={setActive}>
       <Styled.Root>
-        {isPizza ? (
-          <PizzaModal />
-        ) : (
-          <Styled.SimpleProduct>Simple Product Modal</Styled.SimpleProduct>
-        )}
+        {isPizza ? <PizzaModal /> : <SimpleProductModal />}
       </Styled.Root>
     </Modal>
   )

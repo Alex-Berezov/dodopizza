@@ -39,6 +39,29 @@ export const PizzaImgBlockCircleMedium = styled.div`
   height: 350px;
 `
 
+export const PizzaImg = styled.img<PizzaModalStylesProps>`
+  position: absolute;
+  top: ${({ sizeSelected }) =>
+    sizeSelected === 'small'
+      ? '85px'
+      : sizeSelected === 'medium'
+      ? '40px'
+      : '-5px'};
+  left: ${({ sizeSelected }) =>
+    sizeSelected === 'small'
+      ? '80px'
+      : sizeSelected === 'medium'
+      ? '40px'
+      : '-8px'};
+  z-index: 3;
+  width: ${({ sizeSelected }) =>
+    sizeSelected === 'small'
+      ? '300px'
+      : sizeSelected === 'medium'
+      ? '390px'
+      : '495px'};
+`
+
 export const PizzaInfoBlock = styled.div`
   width: 25rem;
   margin-left: 20px;
@@ -173,12 +196,12 @@ export const DoughSelectButton = styled.div<PizzaModalStylesProps>`
   }
 `
 
-export const DoughSRadio = styled.input`
+export const DoughRadio = styled.input`
   position: absolute;
   display: none;
 `
 
-export const DoughSLabel = styled.label<PizzaModalStylesProps>`
+export const DoughLabel = styled.label<PizzaModalStylesProps>`
   display: block;
   flex: 1 1 0%;
   position: relative;
@@ -192,4 +215,34 @@ export const DoughSLabel = styled.label<PizzaModalStylesProps>`
   text-align: center;
   height: 32px;
   transition: color 150ms ease 0s;
+
+  &:hover {
+    cursor: ${(props) => (props.isDisabledThin ? 'not-allowed' : 'pointer')};
+  }
+`
+
+export const AddToCartButton = styled.button`
+  width: 100%;
+  height: 48px;
+  margin-top: 170px;
+  padding: 12px 24px;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: rgb(255, 105, 0);
+  color: rgb(255, 255, 255);
+  outline: none;
+  border: none;
+  border-radius: 9999px;
+  text-align: center;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition-property: background-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+
+  &:hover {
+    background-color: rgb(232, 97, 0);
+  }
 `

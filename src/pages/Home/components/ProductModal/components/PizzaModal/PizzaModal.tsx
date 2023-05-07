@@ -1,9 +1,15 @@
 import React, { FC, useCallback, useState } from 'react'
 import * as Styled from './styles'
 
+import peperoniTraditionalSM from '../../../../../../assets/images/peperoniTraditionalSM.png'
+import peperoniTraditionalMD from '../../../../../../assets/images/peperoniTraditionalMD.png'
+import peperoniTraditionalLG from '../../../../../../assets/images/peperoniTraditionalLG.png'
+
 const PizzaModal: FC = () => {
   const [selectedSize, setSelectedSize] = useState('medium')
   const [selectedDough, setSelectedDough] = useState('traditional')
+  const [disabledThin, setDisabledThin] = useState(false)
+  const [image, setImage] = useState(peperoniTraditionalMD)
 
   const pizzaSizes: Record<string, number> = {
     small: 25,
@@ -22,8 +28,19 @@ const PizzaModal: FC = () => {
 
       if (size === 'small') {
         setSelectedDough('traditional')
+        setDisabledThin(true)
       } else if (selectedDough === 'thin') {
         setSelectedDough('thin')
+      } else {
+        setDisabledThin(false)
+      }
+
+      if (size === 'small') {
+        setImage(peperoniTraditionalSM)
+      } else if (size === 'medium') {
+        setImage(peperoniTraditionalMD)
+      } else {
+        setImage(peperoniTraditionalLG)
       }
     },
     [selectedDough]
@@ -45,6 +62,7 @@ const PizzaModal: FC = () => {
       <Styled.PizzaImgBlock>
         <Styled.PizzaImgBlockCircleLarge />
         <Styled.PizzaImgBlockCircleMedium />
+        <Styled.PizzaImg src={image} sizeSelected={selectedSize} />
       </Styled.PizzaImgBlock>
       <Styled.PizzaInfoBlock>
         <Styled.PizzaTitle>Пепперони фреш</Styled.PizzaTitle>
@@ -87,26 +105,31 @@ const PizzaModal: FC = () => {
         <Styled.DoughSelectorBlock>
           <Styled.DoughSelector>
             <Styled.DoughSelectButton doughSelected={selectedDough} />
-            <Styled.DoughSRadio
+            <Styled.DoughRadio
               type='radio'
               id='traditional'
               value='1'
               checked={selectedDough === 'traditional'}
               onChange={() => handleSelectedDough('traditional')}
             />
-            <Styled.DoughSLabel htmlFor='traditional'>
+            <Styled.DoughLabel htmlFor='traditional'>
               Традиционное
-            </Styled.DoughSLabel>
-            <Styled.DoughSRadio
+            </Styled.DoughLabel>
+            <Styled.DoughRadio
               type='radio'
               id='thin'
               value='1'
               checked={selectedDough === 'thin'}
               onChange={() => handleSelectedDough('thin')}
             />
-            <Styled.DoughSLabel htmlFor='thin'>Тонкое</Styled.DoughSLabel>
+            <Styled.DoughLabel htmlFor='thin' isDisabledThin={disabledThin}>
+              Тонкое
+            </Styled.DoughLabel>
           </Styled.DoughSelector>
         </Styled.DoughSelectorBlock>
+        <Styled.AddToCartButton>
+          Добавить в корзину за 639 ₽
+        </Styled.AddToCartButton>
       </Styled.PizzaInfoBlock>
     </Styled.Pizza>
   )
