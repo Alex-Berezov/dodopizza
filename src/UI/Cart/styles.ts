@@ -8,7 +8,7 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: ${(props) => (props.isOpen ? 1 : 0)};
   pointer-events: ${(props) => (props.isOpen ? 'auto' : 'none')};
   transition: opacity 0.3s ease-in-out;
@@ -17,8 +17,8 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
 export const ModalWrapper = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
-  right: 0;
-  width: 70%;
+  right: -5px;
+  width: 20%;
   height: 100%;
   background-color: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
@@ -36,12 +36,20 @@ export const ModalContent = styled.div`
 
 export const CloseButton = styled.button`
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
+  top: calc(50% - 12px);
+  left: -48px;
+  width: 25px;
+  height: 25px;
+  margin: 0px;
+  padding: 0px;
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition: transform 500ms ease 0s;
+
+  &:hover {
+    transform: scale(1.1) rotate(180deg);
+  }
 `
 
 export const Button = styled.button`

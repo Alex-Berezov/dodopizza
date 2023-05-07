@@ -47,7 +47,7 @@ const Header: FC = () => {
             onBlur={searchInput?.onBlur}
           />
         </Styled.Search>
-        <CartButton onClick={() => openCart()} />
+        <CartButton onClick={openCart} />
       </Styled.Header>
 
       <Styled.EmptyBlock visibleHeader={visibleHeader}></Styled.EmptyBlock>
