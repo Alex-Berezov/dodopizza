@@ -6,11 +6,17 @@ import Logo from '../../assets/images/logo.svg'
 import SearchIcon from '../../assets/images/searchIcon.svg'
 import NavLogo from '../../assets/images/navLogo.png'
 import { CartButton } from '../../UI/HeaderButton'
+import { Cart } from '../../UI/Cart'
 
 const Header: FC = () => {
   const searchInput = useInput('')
   const headerRef = useRef<HTMLDivElement>(null)
   const [visibleHeader, setVisibleHeader] = useState(false)
+  const [cartIsOpen, setCartIsOpen] = useState(false)
+
+  const openCart = () => {
+    setCartIsOpen(true)
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -41,7 +47,7 @@ const Header: FC = () => {
             onBlur={searchInput?.onBlur}
           />
         </Styled.Search>
-        <CartButton />
+        <CartButton onClick={() => openCart()} />
       </Styled.Header>
 
       <Styled.EmptyBlock visibleHeader={visibleHeader}></Styled.EmptyBlock>
@@ -58,6 +64,9 @@ const Header: FC = () => {
           <Styled.NavListItem>Напитки</Styled.NavListItem>
         </Styled.NavList>
       </Styled.Nav>
+      <Cart isOpen={cartIsOpen} onClose={setCartIsOpen}>
+        Cart content
+      </Cart>
     </Styled.Root>
   )
 }

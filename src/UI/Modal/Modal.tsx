@@ -4,7 +4,7 @@ import * as Styled from './styles'
 interface ModalProps {
   active: boolean
   setActive: (bool: boolean) => void
-  children: string | JSX.Element
+  children: React.ReactNode
 }
 
 const Modal: FC<ModalProps> = ({ active, setActive, children }) => {
