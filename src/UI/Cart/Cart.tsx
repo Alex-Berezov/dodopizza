@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react'
+import React, { FC, useCallback, useEffect } from 'react'
 import * as Styled from './styles'
 
 interface CartProps {
@@ -16,6 +16,14 @@ const Cart: FC<CartProps> = ({ isOpen, onClose, children }) => {
     },
     [onClose]
   )
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('locked')
+    } else {
+      document.body.classList.remove('locked')
+    }
+  }, [isOpen])
 
   return (
     <Styled.Root>

@@ -1,9 +1,14 @@
 import React, { FC } from 'react'
 import * as Styled from './styles'
+import { AddToCartButton } from '../../../../../../UI/AddToCartButton'
 
 import dodster from '../../../../../../assets/images/dodster.png'
 
 const SimpleProductModal: FC = () => {
+  const heandleClick = () => {
+    console.log('Click')
+  }
+
   return (
     <Styled.SimpleProduct>
       <Styled.SimpleProductImgBlock>
@@ -16,9 +21,9 @@ const SimpleProductModal: FC = () => {
           Легендарная горячая закуска с цыпленком, томатами, моцареллой, соусом
           ранч в тонкой пшеничной лепешке
         </Styled.Description>
-        <Styled.AddToCartButton>
+        <AddToCartButton onClick={heandleClick}>
           Добавить в корзину за 169 ₽
-        </Styled.AddToCartButton>
+        </AddToCartButton>
       </Styled.SimpleProductInfoBlock>
     </Styled.SimpleProduct>
   )

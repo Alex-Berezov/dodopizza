@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const Root = styled.div``
+export const Root = styled.div`
+  overflow-y: auto;
+`
 
 export const Overlay = styled.div<{ isOpen: boolean }>`
   position: fixed;
@@ -17,10 +19,10 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
 export const ModalWrapper = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
-  right: -5px;
+  right: 0;
   width: 20%;
   height: 100%;
-  background-color: #fff;
+  background: rgb(243, 243, 247);
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
   transform: translateX(${(props) => (props.isOpen ? '0' : '100%')});
   transition: transform 0.3s ease-in-out;
@@ -29,7 +31,6 @@ export const ModalWrapper = styled.div<{ isOpen: boolean }>`
 
 export const ModalContent = styled.div`
   height: 100%;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
 `

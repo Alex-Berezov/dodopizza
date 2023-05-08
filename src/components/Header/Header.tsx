@@ -6,7 +6,7 @@ import Logo from '../../assets/images/logo.svg'
 import SearchIcon from '../../assets/images/searchIcon.svg'
 import NavLogo from '../../assets/images/navLogo.png'
 import { CartButton } from '../../UI/HeaderButton'
-import { Cart } from '../../UI/Cart'
+import { HeaderCart } from './components/HeaderCart'
 
 const Header: FC = () => {
   const searchInput = useInput('')
@@ -64,9 +64,7 @@ const Header: FC = () => {
           <Styled.NavListItem>Напитки</Styled.NavListItem>
         </Styled.NavList>
       </Styled.Nav>
-      <Cart isOpen={cartIsOpen} onClose={setCartIsOpen}>
-        Cart content
-      </Cart>
+      <HeaderCart cartIsOpen={cartIsOpen} setCartIsOpen={setCartIsOpen} />
     </Styled.Root>
   )
 }

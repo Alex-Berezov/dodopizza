@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useState } from 'react'
 import * as Styled from './styles'
+import { AddToCartButton } from '../../../../../../UI/AddToCartButton'
 
 import peperoniTraditionalSM from '../../../../../../assets/images/peperoniTraditionalSM.png'
 import peperoniTraditionalMD from '../../../../../../assets/images/peperoniTraditionalMD.png'
@@ -56,6 +57,10 @@ const PizzaModal: FC = () => {
     },
     [selectedSize]
   )
+
+  const heandleClick = () => {
+    console.log('Click')
+  }
 
   return (
     <Styled.Pizza>
@@ -127,9 +132,9 @@ const PizzaModal: FC = () => {
             </Styled.DoughLabel>
           </Styled.DoughSelector>
         </Styled.DoughSelectorBlock>
-        <Styled.AddToCartButton>
+        <AddToCartButton onClick={heandleClick}>
           Добавить в корзину за 639 ₽
-        </Styled.AddToCartButton>
+        </AddToCartButton>
       </Styled.PizzaInfoBlock>
     </Styled.Pizza>
   )
