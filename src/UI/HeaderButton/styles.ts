@@ -12,7 +12,7 @@ export const Root = styled.button`
   padding: 8px 20px;
   font-size: 16px;
   line-height: 24px;
-  background-color: rgb(255, 105, 0);
+  background-color: ${({ theme }) => theme.colors.orange};
   color: rgb(255, 255, 255);
   border: 1px solid rgb(255, 105, 0);
   border-radius: 9999px;

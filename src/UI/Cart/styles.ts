@@ -19,7 +19,7 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
 export const ModalWrapper = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
-  right: 0;
+  right: -5px;
   width: 20%;
   height: 100%;
   background: rgb(243, 243, 247);

@@ -43,6 +43,7 @@ export const SearchInput = styled.input`
   padding: 5px 5px 5px 30px;
   border-radius: 5px;
   border: 1px solid #000000;
+  width: 250px;
 `
 
 export const EmptyBlock = styled.div<HeaderProps>`
