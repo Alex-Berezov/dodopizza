@@ -1,13 +1,24 @@
 import styled from 'styled-components'
+import { respondTo } from '../../utils/mediaQuerys'
 
 interface HeaderProps {
   visibleHeader: boolean
 }
 
 export const Root = styled.header`
-  width: 1280px;
-  min-width: 1024px;
   margin: 0 auto;
+  padding-left: 80px;
+  padding-right: 80px;
+
+  ${respondTo.md} {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  ${respondTo.sm} {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 `
 
 export const Header = styled.div`
@@ -15,11 +26,23 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 24px 0px 16px;
+
+  ${respondTo.xs} {
+    flex-direction: column;
+  }
 `
 
 export const Logo = styled.a`
   text-decoration: none;
   color: inherit;
+
+  ${respondTo.sm} {
+    width: 130px;
+  }
+
+  ${respondTo.xs} {
+    margin-bottom: 10px;
+  }
 `
 
 export const LogoImg = styled.img``
@@ -28,6 +51,10 @@ export const Search = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+
+  ${respondTo.xs} {
+    margin-bottom: 10px;
+  }
 `
 
 export const SearchImg = styled.img`
@@ -44,6 +71,14 @@ export const SearchInput = styled.input`
   border-radius: 5px;
   border: 1px solid ${(props) => props.theme.colors.black};
   width: 250px;
+
+  ${respondTo.sm} {
+    width: 150px;
+  }
+
+  ${respondTo.xs} {
+    width: 250px;
+  }
 `
 
 export const EmptyBlock = styled.div<HeaderProps>`
@@ -84,6 +119,11 @@ export const NavList = styled.ul<HeaderProps>`
   padding: 0;
   transform: translateX(${(props) => (props.visibleHeader ? '-66px' : '0px')});
   transition: transform 0.25s ease 0s;
+
+  ${respondTo.xxs} {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
 `
 
 export const NavListItem = styled.li`

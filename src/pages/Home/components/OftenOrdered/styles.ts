@@ -1,11 +1,17 @@
 import styled from 'styled-components'
+import { respondTo } from '../../../../utils/mediaQuerys'
 
 export const Root = styled.section`
   display: flex;
   flex-direction: column;
   margin: 50px auto;
-  width: 1280px;
-  min-width: 1024px;
+  padding-left: 80px;
+  padding-right: 80px;
+
+  ${respondTo.md} {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `
 
 export const H2 = styled.h2`
@@ -20,6 +26,11 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+
+  ${respondTo.md} {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
 `
 
 export const ContainerItem = styled.article`
@@ -30,12 +41,23 @@ export const ContainerItem = styled.article`
   box-shadow: ${(props) => props.theme.shadows.oftenOrderedShadow};
   border-radius: 12px;
   cursor: pointer;
-  width: 260px;
+  width: 230px;
+  min-width: 230px;
   padding: 16px;
   margin-right: 24px;
+  margin-bottom: 20px;
 
   &:hover {
     box-shadow: ${(props) => props.theme.shadows.hoveredOftenOrderedShadow};
+  }
+
+  ${respondTo.md} {
+    margin-right: 10px;
+  }
+
+  ${respondTo.sm} {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `
 

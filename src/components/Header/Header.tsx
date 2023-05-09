@@ -3,12 +3,14 @@ import * as Styled from './styles'
 import useInput from '../../hooks/useInput'
 
 import Logo from '../../assets/images/logo.svg'
+import mobLogo from '../../assets/images/mobLogo.png'
 import SearchIcon from '../../assets/images/searchIcon.svg'
 import NavLogo from '../../assets/images/navLogo.png'
 import { CartButton } from '../../UI/HeaderButton'
 import { HeaderCart } from './components/HeaderCart'
 
 const Header: FC = () => {
+  let screenWidth = window.innerWidth
   const searchInput = useInput('')
   const headerRef = useRef<HTMLDivElement>(null)
   const [visibleHeader, setVisibleHeader] = useState(false)
@@ -36,7 +38,10 @@ const Header: FC = () => {
     <Styled.Root>
       <Styled.Header ref={headerRef}>
         <Styled.Logo href='/'>
-          <Styled.LogoImg src={Logo} alt='Logo' />
+          <Styled.LogoImg
+            src={screenWidth <= 768 ? mobLogo : Logo}
+            alt='Logo'
+          />
         </Styled.Logo>
         <Styled.Search>
           <Styled.SearchImg src={SearchIcon} />

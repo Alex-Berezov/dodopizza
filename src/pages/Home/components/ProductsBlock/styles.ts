@@ -1,16 +1,27 @@
 import styled from 'styled-components'
+import { respondTo } from '../../../../utils/mediaQuerys'
 
 export const Root = styled.section`
   display: flex;
   flex-wrap: wrap;
   margin: 50px auto;
-  width: 1280px;
-  min-width: 1024px;
+  padding-left: 80px;
+  padding-right: 80px;
+
+  ${respondTo.md} {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  ${respondTo.sm} {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 `
 
 export const H2 = styled.h2`
   width: 100%;
-  color: rgb(0, 0, 0);
+  color: ${(props) => props.theme.colors.black};
   font-weight: 600;
   font-size: 36px;
   margin: 32px 0px;
@@ -25,9 +36,21 @@ export const ProductList = styled.div`
 `
 
 export const ProductItem = styled.article`
-  margin: 0 37px 60px 0;
+  margin-bottom: 60px;
   cursor: pointer;
-  width: 20%;
+  width: 21%;
+
+  ${respondTo.preMd} {
+    width: 31%;
+  }
+
+  ${respondTo.sm} {
+    width: 45%;
+  }
+
+  ${respondTo.xs} {
+    width: 100%;
+  }
 `
 
 export const Main = styled.div`
@@ -35,11 +58,16 @@ export const Main = styled.div`
   flex-direction: column;
 `
 
-export const MainPicture = styled.img``
+export const MainPicture = styled.img`
+  ${respondTo.xs} {
+    width: 70%;
+    margin: 0 auto;
+  }
+`
 
 export const MainTitle = styled.h3`
   margin: 5px 10px;
-  color: rgb(0, 0, 0);
+  color: ${(props) => props.theme.colors.black};
   font-size: 20px;
   line-height: 24px;
   font-weight: 500;
@@ -47,7 +75,7 @@ export const MainTitle = styled.h3`
 
 export const MainDescription = styled.div`
   margin: 5px 10px;
-  color: rgb(0, 0, 0);
+  color: ${(props) => props.theme.colors.black};
   font-size: 16px;
   line-height: 18px;
   font-weight: 400;
@@ -63,7 +91,7 @@ export const Footer = styled.div`
 export const FooterPrice = styled.div`
   padding-right: 4px;
   font-size: 20px;
-  color: rgb(0, 0, 0);
+  color: ${(props) => props.theme.colors.black};
   font-weight: 600;
   line-height: 22px;
 `
