@@ -26,7 +26,7 @@ export const SimpleProductTitle = styled.h3`
 
 export const Characteristics = styled.div`
   display: flex;
-  color: rgb(92, 99, 112);
+  color: ${(props) => props.theme.colors.darkGrey};
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 10px;

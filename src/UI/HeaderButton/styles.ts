@@ -12,15 +12,15 @@ export const Root = styled.button`
   padding: 8px 20px;
   font-size: 16px;
   line-height: 24px;
-  background-color: ${({ theme }) => theme.colors.orange};
-  color: rgb(255, 255, 255);
-  border: 1px solid rgb(255, 105, 0);
+  background-color: ${(props) => props.theme.colors.orange};
+  color: ${(props) => props.theme.colors.white};
+  border: 1px solid ${(props) => props.theme.colors.orange};
   border-radius: 9999px;
   cursor: pointer;
 
   &:hover {
-    background-color: rgb(232, 97, 0);
-    color: rgb(255, 255, 255);
+    background-color: ${(props) => props.theme.colors.hoveredOrange};
+    color: ${(props) => props.theme.colors.white};
   }
 `
 
@@ -32,7 +32,7 @@ export const Separator = styled.div`
   height: 24px;
   width: 1px;
   margin: 0px 12px;
-  background: rgb(255, 255, 255);
+  background: ${(props) => props.theme.colors.white};
   opacity: 0.4;
 `
 
@@ -44,7 +44,7 @@ export const Counter = styled.div`
 
 export const ArrowImg = styled.img<CartButtonProps>`
   max-width: 15px;
-  color: rgb(255, 255, 255);
+  color: ${(props) => props.theme.colors.white};
   margin-top: 7px;
   animation: ${({ visible }) => visible && fadeIn} ease 0.3s;
   transform: translateX(5px);

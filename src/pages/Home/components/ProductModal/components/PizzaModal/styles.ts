@@ -22,7 +22,7 @@ export const PizzaImgBlockCircleLarge = styled.div`
   top: 0;
   left: 0;
   z-index: 1;
-  border: 1px dashed rgb(189 189 189);
+  border: 1px dashed ${(props) => props.theme.colors.grey};
   border-radius: 100%;
   width: 450px;
   height: 450px;
@@ -33,7 +33,7 @@ export const PizzaImgBlockCircleMedium = styled.div`
   top: 50px;
   left: 50px;
   z-index: 2;
-  border: 1px dashed rgb(189 189 189);
+  border: 1px dashed ${(props) => props.theme.colors.grey};
   border-radius: 100%;
   width: 350px;
   height: 350px;
@@ -77,7 +77,7 @@ export const PizzaTitle = styled.h3`
 
 export const Characteristics = styled.div`
   display: flex;
-  color: rgb(92, 99, 112);
+  color: ${(props) => props.theme.colors.darkGrey};
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 10px;
@@ -96,7 +96,7 @@ export const SizeSelectorBlock = styled.div`
 
 export const SizeSelector = styled.div`
   border-radius: 9999px;
-  background-color: rgb(243, 243, 247);
+  background-color: ${(props) => props.theme.colors.liteGrey};
   height: 32px;
   display: flex;
   position: relative;
@@ -131,9 +131,9 @@ export const SizeSelectButton = styled.div<PizzaModalStylesProps>`
     width: 100%;
     height: 100%;
     display: block;
-    background-color: rgb(255, 255, 255);
+    background-color: ${(props) => props.theme.colors.white};
     border-radius: 9999px;
-    box-shadow: rgba(6, 5, 50, 0.19) 0px 6px 20px;
+    box-shadow: ${(props) => props.theme.shadows.boxShadow};
   }
 `
 
@@ -149,7 +149,7 @@ export const SizeLabel = styled.label`
   cursor: pointer;
   user-select: none;
   border-radius: 9999px;
-  color: rgb(0, 0, 0);
+  color: ${(props) => props.theme.colors.black};
   font-size: 12px;
   line-height: 32px;
   font-weight: normal;
@@ -165,7 +165,7 @@ export const DoughSelectorBlock = styled.div`
 
 export const DoughSelector = styled.div`
   border-radius: 9999px;
-  background-color: rgb(243, 243, 247);
+  background-color: ${(props) => props.theme.colors.liteGrey};
   height: 32px;
   display: flex;
   position: relative;
@@ -191,9 +191,9 @@ export const DoughSelectButton = styled.div<PizzaModalStylesProps>`
     width: 100%;
     height: 100%;
     display: block;
-    background-color: rgb(255, 255, 255);
+    background-color: ${(props) => props.theme.colors.white};
     border-radius: 9999px;
-    box-shadow: rgba(6, 5, 50, 0.19) 0px 6px 20px;
+    box-shadow: ${(props) => props.theme.shadows.boxShadow};
   }
 `
 
@@ -209,7 +209,7 @@ export const DoughLabel = styled.label<PizzaModalStylesProps>`
   cursor: pointer;
   user-select: none;
   border-radius: 9999px;
-  color: rgb(0, 0, 0);
+  color: ${(props) => props.theme.colors.black};
   font-size: 12px;
   line-height: 32px;
   font-weight: normal;

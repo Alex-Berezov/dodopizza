@@ -79,14 +79,14 @@ export const FooterButton = styled.button`
   transition-property: background-color, color;
   transition-duration: 200ms;
   transition-timing-function: ease-out;
-  background-color: rgb(255, 240, 230);
-  color: rgb(209, 87, 0);
+  background-color: ${(props) => props.theme.colors.peach};
+  color: ${(props) => props.theme.colors.hoveredOrange};
   padding: 8px 20px;
   font-size: 14px;
   line-height: 20px;
 
   &:hover {
-    background-color: rgb(255, 210, 179);
-    color: rgb(209, 87, 0);
+    background-color: ${(props) => props.theme.colors.hoveredPeach};
+    color: ${(props) => props.theme.colors.hoveredOrange};
   }
 `

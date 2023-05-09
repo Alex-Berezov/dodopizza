@@ -25,9 +25,9 @@ export const Container = styled.div`
 export const ContainerItem = styled.article`
   display: flex;
   align-items: center;
-  background: rgb(255, 255, 255);
+  background: ${(props) => props.theme.colors.white};
   transition: box-shadow 150ms ease-out 0s;
-  box-shadow: rgba(6, 5, 50, 0.15) 0px 4px 22px -6px;
+  box-shadow: ${(props) => props.theme.shadows.oftenOrderedShadow};
   border-radius: 12px;
   cursor: pointer;
   width: 260px;
@@ -35,7 +35,7 @@ export const ContainerItem = styled.article`
   margin-right: 24px;
 
   &:hover {
-    box-shadow: rgba(6, 5, 50, 0.15) 0px 0px 12px -4px;
+    box-shadow: ${(props) => props.theme.shadows.hoveredOftenOrderedShadow};
   }
 `
 

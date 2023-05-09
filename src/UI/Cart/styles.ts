@@ -10,7 +10,7 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: ${(props) => props.theme.colors.overlay};
   opacity: ${(props) => (props.isOpen ? 1 : 0)};
   pointer-events: ${(props) => (props.isOpen ? 'auto' : 'none')};
   transition: opacity 0.3s ease-in-out;
@@ -22,7 +22,7 @@ export const ModalWrapper = styled.div<{ isOpen: boolean }>`
   right: -5px;
   width: 20%;
   height: 100%;
-  background: rgb(243, 243, 247);
+  background: ${(props) => props.theme.colors.liteGrey};
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
   transform: translateX(${(props) => (props.isOpen ? '0' : '100%')});
   transition: transform 0.3s ease-in-out;
@@ -50,31 +50,5 @@ export const CloseButton = styled.button`
 
   &:hover {
     transform: scale(1.1) rotate(180deg);
-  }
-`
-
-export const Button = styled.button`
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  border: none;
-  background-color: #f05f40;
-  color: #fff;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #f1806e;
-  }
-`
-
-export const Input = styled.input`
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  border: 1px solid #ccc;
-  outline: none;
-
-  &:focus {
-    border-color: #f05f40;
   }
 `

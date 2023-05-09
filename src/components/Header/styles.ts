@@ -42,7 +42,7 @@ export const SearchInput = styled.input`
   outline: none;
   padding: 5px 5px 5px 30px;
   border-radius: 5px;
-  border: 1px solid #000000;
+  border: 1px solid ${(props) => props.theme.colors.black};
   width: 250px;
 `
 
@@ -57,7 +57,7 @@ export const Nav = styled.nav<HeaderProps>`
   width: 100%;
   position: ${(props) => (props.visibleHeader ? 'inherit' : 'fixed')};
   top: 0px;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: ${(props) => props.theme.colors.navBackground};
   z-index: 10;
   backdrop-filter: blur(20px);
 `
@@ -97,6 +97,6 @@ export const NavListItem = styled.li`
   cursor: pointer;
 
   &:hover {
-    color: rgb(255, 105, 0);
+    color: ${(props) => props.theme.colors.orange};
   }
 `

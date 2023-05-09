@@ -21,8 +21,8 @@ export const Footer = styled.div`
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgba(6, 5, 50, 0.1) 0px -2px 4px;
+  background-color: ${(props) => props.theme.colors.white};
+  box-shadow: ${(props) => props.theme.shadows.cartFooterShadow};
   margin-top: auto;
 `
 

@@ -8,7 +8,7 @@ interface ModalStylesProps {
 export const Root = styled.div<ModalStylesProps>`
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: ${(props) => props.theme.colors.overlay};
   position: fixed;
   top: 0;
   left: 0;
