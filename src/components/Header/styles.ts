@@ -7,8 +7,28 @@ interface HeaderProps {
 
 export const Root = styled.header`
   margin: 0 auto;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 320px;
+  padding-right: 320px;
+
+  ${respondTo.max} {
+    padding-left: 160px;
+    padding-right: 160px;
+  }
+
+  ${respondTo.lg} {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  ${respondTo.preLg} {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  ${respondTo.mdXL} {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
 
   ${respondTo.md} {
     padding-left: 20px;

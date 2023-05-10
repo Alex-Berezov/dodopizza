@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { respondTo } from '../../utils/mediaQuerys'
 
 interface ModalStylesProps {
   modalActive?: boolean
@@ -27,4 +28,19 @@ export const Content = styled.div<ModalStylesProps>`
   background-color: white;
   transform: ${(props) => (props.contentActive ? 'scale(1)' : 'scale(0.5)')};
   transition: 0.4s all;
+  position: relative;
+
+  ${respondTo.sm} {
+    width: 100%;
+    height: auto;
+  }
+`
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 `

@@ -1,10 +1,10 @@
 import React, { FC, useCallback, useState } from 'react'
 import * as Styled from './styles'
-import { AddToCartButton } from '../../../../../../UI/AddToCartButton'
+import { AddToCartButton } from '../AddToCartButton'
 
-import peperoniTraditionalSM from '../../../../../../assets/images/peperoniTraditionalSM.png'
-import peperoniTraditionalMD from '../../../../../../assets/images/peperoniTraditionalMD.png'
-import peperoniTraditionalLG from '../../../../../../assets/images/peperoniTraditionalLG.png'
+import peperoniTraditionalSM from '../../assets/images/peperoniTraditionalSM.png'
+import peperoniTraditionalMD from '../../assets/images/peperoniTraditionalMD.png'
+import peperoniTraditionalLG from '../../assets/images/peperoniTraditionalLG.png'
 
 const PizzaModal: FC = () => {
   const [selectedSize, setSelectedSize] = useState('medium')

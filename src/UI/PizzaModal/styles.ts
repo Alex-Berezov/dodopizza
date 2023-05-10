@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { respondTo } from '../../utils/mediaQuerys'
 
 interface PizzaModalStylesProps {
   sizeSelected?: string
@@ -9,12 +10,23 @@ interface PizzaModalStylesProps {
 export const Pizza = styled.div`
   display: flex;
   position: relative;
+
+  ${respondTo.sm} {
+    flex-direction: column;
+  }
 `
 
 export const PizzaImgBlock = styled.div`
   min-width: 29rem;
   height: 28rem;
   position: relative;
+
+  ${respondTo.sm} {
+    width: 100%;
+    height: 50vh;
+    min-width: auto;
+    position: static;
+  }
 `
 
 export const PizzaImgBlockCircleLarge = styled.div`
@@ -26,6 +38,10 @@ export const PizzaImgBlockCircleLarge = styled.div`
   border-radius: 100%;
   width: 450px;
   height: 450px;
+
+  ${respondTo.sm} {
+    display: none;
+  }
 `
 
 export const PizzaImgBlockCircleMedium = styled.div`
@@ -37,6 +53,10 @@ export const PizzaImgBlockCircleMedium = styled.div`
   border-radius: 100%;
   width: 350px;
   height: 350px;
+
+  ${respondTo.sm} {
+    display: none;
+  }
 `
 
 export const PizzaImg = styled.img<PizzaModalStylesProps>`
@@ -60,11 +80,24 @@ export const PizzaImg = styled.img<PizzaModalStylesProps>`
       : sizeSelected === 'medium'
       ? '390px'
       : '495px'};
+
+  ${respondTo.sm} {
+    position: static;
+    display: flex;
+    margin: 0 auto;
+
+    width: 350px;
+  }
 `
 
 export const PizzaInfoBlock = styled.div`
   width: 25rem;
   margin-left: 20px;
+
+  ${respondTo.sm} {
+    width: 100%;
+    margin-left: 0;
+  }
 `
 
 export const PizzaTitle = styled.h3`
@@ -161,6 +194,10 @@ export const SizeLabel = styled.label`
 export const DoughSelectorBlock = styled.div`
   margin-top: 15px;
   margin-bottom: 170px;
+
+  ${respondTo.sm} {
+    margin-bottom: 50px;
+  }
 `
 
 export const DoughSelector = styled.div`

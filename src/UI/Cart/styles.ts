@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { respondTo } from '../../utils/mediaQuerys'
 
 export const Root = styled.div`
   overflow-y: auto;
@@ -20,13 +21,17 @@ export const ModalWrapper = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
   right: -5px;
-  width: 20%;
+  width: 360px;
   height: 100%;
   background: ${(props) => props.theme.colors.liteGrey};
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
   transform: translateX(${(props) => (props.isOpen ? '0' : '100%')});
   transition: transform 0.3s ease-in-out;
   z-index: 1;
+
+  ${respondTo.xxxs} {
+    width: 270px;
+  }
 `
 
 export const ModalContent = styled.div`

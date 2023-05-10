@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import * as Styled from './styles'
-import { AddToCartButton } from '../../../../../../UI/AddToCartButton'
+import { AddToCartButton } from '../AddToCartButton'
 
-import dodster from '../../../../../../assets/images/dodster.png'
+import dodster from '../../assets/images/dodster.png'
 
 const SimpleProductModal: FC = () => {
   const heandleClick = () => {

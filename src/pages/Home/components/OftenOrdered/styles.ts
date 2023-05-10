@@ -5,8 +5,28 @@ export const Root = styled.section`
   display: flex;
   flex-direction: column;
   margin: 50px auto;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 320px;
+  padding-right: 320px;
+
+  ${respondTo.max} {
+    padding-left: 160px;
+    padding-right: 160px;
+  }
+
+  ${respondTo.lg} {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  ${respondTo.preLg} {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  ${respondTo.mdXL} {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
 
   ${respondTo.md} {
     padding-left: 20px;
@@ -26,11 +46,8 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-
-  ${respondTo.md} {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
+  flex-wrap: nowrap;
+  overflow-x: auto;
 `
 
 export const ContainerItem = styled.article`

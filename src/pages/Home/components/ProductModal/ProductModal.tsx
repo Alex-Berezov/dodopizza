@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import * as Styled from './styles'
 import { Modal } from '../../../../UI/Modal'
-import { PizzaModal } from './components/PizzaModal'
-import SimpleProductModal from './components/SimpleProductModal/SimpleProductModal'
+import { PizzaModal } from '../../../../UI/PizzaModal'
+import SimpleProductModal from '../../../../UI/SimpleProductModal/SimpleProductModal'
 
 interface ProductModalProps {
   active: boolean
