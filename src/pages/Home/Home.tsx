@@ -3,14 +3,10 @@ import * as Styled from './styles'
 import { Header } from '../../components/Header'
 import { OftenOrdered } from './components/OftenOrdered'
 import { ProductsBlock } from './components/ProductsBlock'
-import { productsAPI } from '../../api/productsAPI'
+import { productsAPI } from '../../services/ProductsService'
 
 const Home: FC = () => {
-  const response = productsAPI.getAllProducts().then((data) => {
-    console.log('====================================')
-    console.log('data >>', data.data)
-    console.log('====================================')
-  })
+  const { data } = productsAPI.useFetchAllProductsQuery('')
 
   return (
     <Styled.Root>

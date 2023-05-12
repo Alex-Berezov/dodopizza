@@ -5,11 +5,17 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
+import { Provider } from 'react-redux'
+import { setupStore } from './store/store'
+
+const store = setupStore()
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <ThemeProvider theme={theme}>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </ThemeProvider>
 )
 
