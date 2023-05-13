@@ -132,11 +132,8 @@ export const NavLogoImg = styled.img<HeaderProps>`
   transition: transform 0.25s ease 0s;
 `
 
-export const NavList = styled.ul<HeaderProps>`
+export const NavList = styled.div<HeaderProps>`
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   transform: translateX(${(props) => (props.visibleHeader ? '-66px' : '0px')});
   transition: transform 0.25s ease 0s;
 
@@ -146,7 +143,7 @@ export const NavList = styled.ul<HeaderProps>`
   }
 `
 
-export const NavListItem = styled.li`
+export const NavListItem = styled.a`
   margin-right: 20px;
   font-weight: 500;
   padding: 22px 0px;

@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { respondTo } from '../../../../utils/mediaQuerys'
 
+interface ProductsStylesProps {
+  isDrinks?: boolean
+}
+
 export const Root = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -55,10 +59,14 @@ export const ProductList = styled.div`
   margin-top: 50px;
 `
 
-export const ProductItem = styled.article`
+export const ProductItem = styled.article<ProductsStylesProps>`
   margin-bottom: 60px;
   cursor: pointer;
   width: 21%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: ${(props) => (props.isDrinks ? 'auto' : '470px')};
 
   ${respondTo.preMd} {
     width: 31%;
@@ -96,8 +104,8 @@ export const MainTitle = styled.h3`
 export const MainDescription = styled.div`
   margin: 5px 10px;
   color: ${(props) => props.theme.colors.black};
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 16px;
   font-weight: 400;
 `
 

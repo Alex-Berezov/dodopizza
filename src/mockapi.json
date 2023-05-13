@@ -21,7 +21,8 @@
     "pizzaDough": {
       "traditional": "традиционное",
       "thin": "тонкое"
-    }
+    },
+    "price": 689
   },
   {
     "id": 1,
@@ -45,7 +46,8 @@
     "pizzaDough": {
       "traditional": "традиционное",
       "thin": "тонкое"
-    }
+    },
+    "price": 299
   },
   {
     "id": 2,
@@ -69,7 +71,8 @@
     "pizzaDough": {
       "traditional": "традиционное",
       "thin": "тонкое"
-    }
+    },
+    "price": 299
   },
   {
     "id": 3,
@@ -93,7 +96,8 @@
     "pizzaDough": {
       "traditional": "традиционное",
       "thin": "тонкое"
-    }
+    },
+    "price": 439
   },
   {
     "id": 4,
@@ -117,7 +121,8 @@
     "pizzaDough": {
       "traditional": "традиционное",
       "thin": "тонкое"
-    }
+    },
+    "price": 389
   },
   {
     "id": 5,
@@ -141,7 +146,8 @@
     "pizzaDough": {
       "traditional": "традиционное",
       "thin": "тонкое"
-    }
+    },
+    "price": 299
   },
   {
     "id": 6,
@@ -165,7 +171,8 @@
     "pizzaDough": {
       "traditional": "традиционное",
       "thin": "тонкое"
-    }
+    },
+    "price": 389
   },
   {
     "id": 7,
@@ -189,7 +196,8 @@
     "pizzaDough": {
       "traditional": "традиционное",
       "thin": "тонкое"
-    }
+    },
+    "price": 539
   },
   {
     "id": 0,
@@ -198,7 +206,8 @@
     "description": "Поджаристая чиабатта и знакомое сочетание ветчины, цыпленка, моцареллы со свежими томатами и соусом ранч",
     "isPizza": false,
     "weight": 210,
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/727c8ec398bb48bc814a2d83c2e6a74c_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/727c8ec398bb48bc814a2d83c2e6a74c_292x292.webp",
+    "price": 229
   },
   {
     "id": 1,
@@ -207,7 +216,8 @@
     "description": "Насыщенный вкус колбасок чоризо и пепперони с соусами бургер и барбекю, свежими томатами, маринованными огурчиками, моцареллой и луком в румяной чиабатте",
     "isPizza": false,
     "weight": 210,
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/87b6d4ca8df7430497de8ceaac09203e_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/87b6d4ca8df7430497de8ceaac09203e_292x292.webp",
+    "price": 229
   },
   {
     "id": 2,
@@ -216,7 +226,8 @@
     "description": "Горячая закуска с цыпленком, моцареллой, митболами, острыми колбасками чоризо и соусом бургер в тонкой пшеничной лепешке",
     "isPizza": false,
     "weight": 160,
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/b33f34589fa74a3788f3981848084cf2_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/b33f34589fa74a3788f3981848084cf2_292x292.webp",
+    "price": 209
   },
   {
     "id": 3,
@@ -225,7 +236,8 @@
     "description": "Горячая закуска с цыпленком, ананасом, сладким перцем, моцареллой и пряным соусом карри в тонкой пшеничной лепешке",
     "isPizza": false,
     "weight": 180,
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/c65d065f6e654aa2a20787a9e806e04d_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/c65d065f6e654aa2a20787a9e806e04d_292x292.webp",
+    "price": 189
   },
   {
     "id": 4,
@@ -234,7 +246,8 @@
     "description": "Легендарная горячая закуска с цыпленком, томатами, моцареллой, соусом ранч в тонкой пшеничной лепешке",
     "isPizza": false,
     "weight": 200,
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/be03844e8b8a401ba4af5a4e7f74ea37_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/be03844e8b8a401ba4af5a4e7f74ea37_292x292.webp",
+    "price": 169
   },
   {
     "id": 5,
@@ -243,7 +256,8 @@
     "description": "Горячая закуска с цыпленком, перчиком халапеньо, маринованными огурчиками, томатами, моцареллой и соусом барбекю в тонкой пшеничной лепешке",
     "isPizza": false,
     "weight": 190,
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/1d0bf2b8dd2d472294538d1e80381f77_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/1d0bf2b8dd2d472294538d1e80381f77_292x292.webp",
+    "price": 169
   },
   {
     "id": 6,
@@ -252,7 +266,8 @@
     "description": "Горячая закуска с шампиньонами, моцареллой и соусом ранч в тонкой пшеничной лепешке",
     "isPizza": false,
     "weight": 150,
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/ccb169c149374526a8e58f4f22ff7074_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/ccb169c149374526a8e58f4f22ff7074_292x292.webp",
+    "price": 169
   },
   {
     "id": 7,
@@ -261,7 +276,8 @@
     "description": "Горячая закуска с очень сырной начинкой. Моцарелла, пармезан, чеддер и соус ранч в тонкой пшеничной лепешке",
     "isPizza": false,
     "weight": 160,
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/2494c1cb12384c7486b3b41ab87a594d_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/2494c1cb12384c7486b3b41ab87a594d_292x292.webp",
+    "price": 169
   },
   {
     "id": 0,
@@ -269,7 +285,8 @@
     "title": "Добрый Кола",
     "isPizza": false,
     "weight": "0,5",
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/dc74c00bc0634933ba7194b99a164094_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/dc74c00bc0634933ba7194b99a164094_292x292.webp",
+    "price": 109
   },
   {
     "id": 1,
@@ -277,7 +294,8 @@
     "title": "Добрый Кола без сахара",
     "isPizza": false,
     "weight": "0,5",
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/665800efd5614d4eb6b3b8ec2eb4d662_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/665800efd5614d4eb6b3b8ec2eb4d662_292x292.webp",
+    "price": 109
   },
   {
     "id": 2,
@@ -285,7 +303,8 @@
     "title": "Добрый Апельсин",
     "isPizza": false,
     "weight": "0,5",
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/f501c8e65f574f00bc7ab6ec4720e602_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/f501c8e65f574f00bc7ab6ec4720e602_292x292.webp",
+    "price": 109
   },
   {
     "id": 3,
@@ -293,7 +312,8 @@
     "title": "Добрый Лайм-Лимон",
     "isPizza": false,
     "weight": "0,5",
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/b25b40c2bf934265ae4eea61a2617d1a_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/b25b40c2bf934265ae4eea61a2617d1a_292x292.webp",
+    "price": 109
   },
   {
     "id": 4,
@@ -301,7 +321,8 @@
     "title": "Rich Tea Черный с лимоном",
     "isPizza": false,
     "weight": "0,5",
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/e0ecb48734e14d839406f8dea4f297c9_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/e0ecb48734e14d839406f8dea4f297c9_292x292.webp",
+    "price": 119
   },
   {
     "id": 5,
@@ -309,7 +330,8 @@
     "title": "Rich Tea Зеленый",
     "isPizza": false,
     "weight": "0,5",
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/506b590ea3664523b8ebc61c0d156aa3_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/506b590ea3664523b8ebc61c0d156aa3_292x292.webp",
+    "price": 119
   },
   {
     "id": 6,
@@ -317,7 +339,8 @@
     "title": "Rich Tea Зеленый с манго",
     "isPizza": false,
     "weight": "0,5",
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/4f2a53a3a235440d8984b9751a3631bb_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/4f2a53a3a235440d8984b9751a3631bb_292x292.webp",
+    "price": 119
   },
   {
     "id": 7,
@@ -325,6 +348,7 @@
     "title": "Апельсиновый сок Rich",
     "isPizza": false,
     "weight": 1,
-    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/130d8f23009d4467b46e41cae70a7a1b_292x292.webp"
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/130d8f23009d4467b46e41cae70a7a1b_292x292.webp",
+    "price": 199
   }
 ]

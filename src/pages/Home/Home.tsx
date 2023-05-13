@@ -12,7 +12,7 @@ const Home: FC = () => {
     <Styled.Root>
       <Header />
       <OftenOrdered />
-      <ProductsBlock />
+      <ProductsBlock products={data} />
     </Styled.Root>
   )
 }

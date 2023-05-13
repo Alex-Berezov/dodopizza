@@ -9,6 +9,7 @@ type PizzaDough = Record<'traditional' | 'thin', string>
 
 export interface IProducts {
   id: number
+  category: string
   title: string
   description?: string
   isPizza: boolean
@@ -17,4 +18,5 @@ export interface IProducts {
   pizzaDough?: PizzaDough
   weight?: number
   image?: string
+  price: number
 }

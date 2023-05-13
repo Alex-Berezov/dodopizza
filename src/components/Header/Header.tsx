@@ -34,6 +34,20 @@ const Header: FC = () => {
     }
   }, [])
 
+  const scrollToSection = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
+    event.preventDefault()
+    const element = document.getElementById(sectionId)
+    if (element) {
+      window.scrollTo({
+        behavior: 'smooth',
+        top: element.offsetTop,
+      })
+    }
+  }
+
   return (
     <Styled.Root>
       <Styled.Header ref={headerRef}>
@@ -62,11 +76,24 @@ const Header: FC = () => {
           <Styled.NavLogoImg src={NavLogo} visibleHeader={visibleHeader} />
         </Styled.NavLogo>
         <Styled.NavList visibleHeader={visibleHeader}>
-          <Styled.NavListItem>Пицца</Styled.NavListItem>
-          <Styled.NavListItem>Комбо</Styled.NavListItem>
-          <Styled.NavListItem>Закуски</Styled.NavListItem>
-          <Styled.NavListItem>Десерты</Styled.NavListItem>
-          <Styled.NavListItem>Напитки</Styled.NavListItem>
+          <Styled.NavListItem
+            href='#pizzas'
+            onClick={(e) => scrollToSection(e, 'pizzas')}
+          >
+            Пицца
+          </Styled.NavListItem>
+          <Styled.NavListItem
+            href='#snacks'
+            onClick={(e) => scrollToSection(e, 'snacks')}
+          >
+            Закуски
+          </Styled.NavListItem>
+          <Styled.NavListItem
+            href='#drinks'
+            onClick={(e) => scrollToSection(e, 'drinks')}
+          >
+            Напитки
+          </Styled.NavListItem>
         </Styled.NavList>
       </Styled.Nav>
       <HeaderCart cartIsOpen={cartIsOpen} setCartIsOpen={setCartIsOpen} />
