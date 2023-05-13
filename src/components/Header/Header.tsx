@@ -36,14 +36,16 @@ const Header: FC = () => {
 
   const scrollToSection = (
     event: React.MouseEvent<HTMLAnchorElement>,
-    sectionId: string
+    sectionId: string,
+    offset: number
   ) => {
     event.preventDefault()
     const element = document.getElementById(sectionId)
     if (element) {
+      const top = element.offsetTop - offset
       window.scrollTo({
         behavior: 'smooth',
-        top: element.offsetTop,
+        top,
       })
     }
   }
@@ -78,19 +80,19 @@ const Header: FC = () => {
         <Styled.NavList visibleHeader={visibleHeader}>
           <Styled.NavListItem
             href='#pizzas'
-            onClick={(e) => scrollToSection(e, 'pizzas')}
+            onClick={(e) => scrollToSection(e, 'pizzas', 100)}
           >
             Пицца
           </Styled.NavListItem>
           <Styled.NavListItem
             href='#snacks'
-            onClick={(e) => scrollToSection(e, 'snacks')}
+            onClick={(e) => scrollToSection(e, 'snacks', 100)}
           >
             Закуски
           </Styled.NavListItem>
           <Styled.NavListItem
             href='#drinks'
-            onClick={(e) => scrollToSection(e, 'drinks')}
+            onClick={(e) => scrollToSection(e, 'drinks', 100)}
           >
             Напитки
           </Styled.NavListItem>

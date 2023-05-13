@@ -152,6 +152,7 @@ export const NavListItem = styled.a`
   line-height: 1;
   transition: color 0.25s ease 0s, padding 0.25s ease 0s;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     color: ${(props) => props.theme.colors.orange};
