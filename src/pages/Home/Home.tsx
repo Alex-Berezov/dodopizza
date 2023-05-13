@@ -11,7 +11,7 @@ const Home: FC = () => {
   return (
     <Styled.Root>
       <Header />
-      <OftenOrdered />
+      <OftenOrdered products={data} />
       <ProductsBlock products={data} />
     </Styled.Root>
   )

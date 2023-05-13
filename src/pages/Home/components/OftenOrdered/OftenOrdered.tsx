@@ -4,27 +4,30 @@ import { ProductModal } from '../ProductModal'
 
 import peperoniFresh from '../../../../assets/images/peperoni-fresh.webp'
 import dodster from '../../../../assets/images/dodster.png'
+import { IProducts } from '../../../../models/IProducts'
 
-const OftenOrdered: FC = () => {
+interface OftenOrderedProps {
+  products: IProducts[]
+}
+
+const initialProductState = {
+  id: 0,
+  category: '',
+  title: '',
+  isPizza: true,
+  price: 0,
+}
+
+const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
   const [activeModal, setActiveModal] = useState(false)
-  const [isPizza, setIsActivePizza] = useState(true)
-
-  const simpleProductSelected = (type: string) => {
-    if (type === 'pizza') {
-      setIsActivePizza(true)
-      setActiveModal(true)
-    } else {
-      setIsActivePizza(false)
-      setActiveModal(true)
-    }
-  }
+  const [product, setProduct] = useState(initialProductState)
 
   return (
     <Styled.Root>
       <Styled.H2>Часто заказывают</Styled.H2>
 
       <Styled.Container>
-        <Styled.ContainerItem onClick={() => simpleProductSelected('pizza')}>
+        <Styled.ContainerItem>
           <Styled.ContainerItemPicture>
             <Styled.ContainerItemPictureImg src={peperoniFresh} />
           </Styled.ContainerItemPicture>
@@ -38,7 +41,7 @@ const OftenOrdered: FC = () => {
           </Styled.ContainerItemInfo>
         </Styled.ContainerItem>
 
-        <Styled.ContainerItem onClick={() => simpleProductSelected('simple')}>
+        <Styled.ContainerItem>
           <Styled.ContainerItemPicture>
             <Styled.ContainerItemPictureImg src={dodster} />
           </Styled.ContainerItemPicture>
@@ -82,7 +85,7 @@ const OftenOrdered: FC = () => {
       <ProductModal
         active={activeModal}
         setActive={setActiveModal}
-        isPizza={isPizza}
+        product={product}
       />
     </Styled.Root>
   )

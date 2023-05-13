@@ -3,8 +3,13 @@ import * as Styled from './styles'
 import { AddToCartButton } from '../AddToCartButton'
 
 import dodster from '../../assets/images/dodster.png'
+import { IProducts } from '../../models/IProducts'
 
-const SimpleProductModal: FC = () => {
+interface SimpleProductModalProps {
+  product: IProducts
+}
+
+const SimpleProductModal: FC<SimpleProductModalProps> = ({ product }) => {
   const heandleClick = () => {
     console.log('Click')
   }
@@ -12,17 +17,14 @@ const SimpleProductModal: FC = () => {
   return (
     <Styled.SimpleProduct>
       <Styled.SimpleProductImgBlock>
-        <Styled.SimpleProductImg src={dodster} />
+        <Styled.SimpleProductImg src={product.image} />
       </Styled.SimpleProductImgBlock>
       <Styled.SimpleProductInfoBlock>
-        <Styled.SimpleProductTitle>Додстер</Styled.SimpleProductTitle>
-        <Styled.Characteristics>200 г</Styled.Characteristics>
-        <Styled.Description>
-          Легендарная горячая закуска с цыпленком, томатами, моцареллой, соусом
-          ранч в тонкой пшеничной лепешке
-        </Styled.Description>
+        <Styled.SimpleProductTitle>{product.title}</Styled.SimpleProductTitle>
+        <Styled.Characteristics>{product.weight} г</Styled.Characteristics>
+        <Styled.Description>{product.description}</Styled.Description>
         <AddToCartButton onClick={heandleClick}>
-          Добавить в корзину за 169 ₽
+          Добавить в корзину за {product.price} ₽
         </AddToCartButton>
       </Styled.SimpleProductInfoBlock>
     </Styled.SimpleProduct>

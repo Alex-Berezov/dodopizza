@@ -5,12 +5,25 @@ import { AddToCartButton } from '../AddToCartButton'
 import peperoniTraditionalSM from '../../assets/images/peperoniTraditionalSM.png'
 import peperoniTraditionalMD from '../../assets/images/peperoniTraditionalMD.png'
 import peperoniTraditionalLG from '../../assets/images/peperoniTraditionalLG.png'
+import { IProducts } from '../../models/IProducts'
 
-const PizzaModal: FC = () => {
+interface PizzaModalProps {
+  product: IProducts
+}
+
+const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState('medium')
   const [selectedDough, setSelectedDough] = useState('traditional')
   const [disabledThin, setDisabledThin] = useState(false)
   const [image, setImage] = useState(peperoniTraditionalMD)
+
+  console.log('====================================')
+  console.log('product >>', product)
+  console.log('====================================')
+
+  console.log('====================================')
+  console.log('selectedSize >>', selectedSize)
+  console.log('====================================')
 
   const pizzaSizes: Record<string, number> = {
     small: 25,
@@ -70,14 +83,11 @@ const PizzaModal: FC = () => {
         <Styled.PizzaImg src={image} sizeSelected={selectedSize} />
       </Styled.PizzaImgBlock>
       <Styled.PizzaInfoBlock>
-        <Styled.PizzaTitle>Пепперони фреш</Styled.PizzaTitle>
+        <Styled.PizzaTitle>{product.title}</Styled.PizzaTitle>
         <Styled.Characteristics>
           {pizzaSizes[selectedSize]} см, {pizzaDough[selectedDough]} тесто
         </Styled.Characteristics>
-        <Styled.Description>
-          Пикантная пепперони, увеличенная порция моцареллы, томаты, фирменный
-          томатный соус
-        </Styled.Description>
+        <Styled.Description>{product.description}</Styled.Description>
         <Styled.SizeSelectorBlock>
           <Styled.SizeSelector>
             <Styled.SizeSelectButton sizeSelected={selectedSize} />
@@ -133,7 +143,7 @@ const PizzaModal: FC = () => {
           </Styled.DoughSelector>
         </Styled.DoughSelectorBlock>
         <AddToCartButton onClick={heandleClick}>
-          Добавить в корзину за 639 ₽
+          Добавить в корзину за {product.price} ₽
         </AddToCartButton>
       </Styled.PizzaInfoBlock>
     </Styled.Pizza>

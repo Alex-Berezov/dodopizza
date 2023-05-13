@@ -3,22 +3,27 @@ import * as Styled from './styles'
 import { Modal } from '../../../../UI/Modal'
 import { PizzaModal } from '../../../../UI/PizzaModal'
 import SimpleProductModal from '../../../../UI/SimpleProductModal/SimpleProductModal'
+import { IProducts } from '../../../../models/IProducts'
 
 interface ProductModalProps {
   active: boolean
   setActive: (bool: boolean) => void
-  isPizza: boolean
+  product: IProducts
 }
 
 const ProductModal: FC<ProductModalProps> = ({
   active,
   setActive,
-  isPizza,
+  product,
 }) => {
   return (
     <Modal active={active} setActive={setActive}>
       <Styled.Root>
-        {isPizza ? <PizzaModal /> : <SimpleProductModal />}
+        {product.isPizza ? (
+          <PizzaModal product={product} />
+        ) : (
+          <SimpleProductModal product={product} />
+        )}
       </Styled.Root>
     </Modal>
   )
