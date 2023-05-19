@@ -8,17 +8,17 @@ interface ProductsBlockProps {
   products: IProducts[]
 }
 
-const initialProductState = {
-  id: 0,
-  category: '',
-  title: '',
-  isPizza: true,
-  price: 0,
-}
+// const initialProductState = {
+//   id: 0,
+//   category: '',
+//   title: '',
+//   isPizza: true,
+//   price: 0,
+// }
 
 const ProductsBlock: FC<ProductsBlockProps> = ({ products }) => {
   const [activeModal, setActiveModal] = useState(false)
-  const [product, setProduct] = useState(initialProductState)
+  const [product, setProduct] = useState<IProducts>()
 
   const pizzas = products?.filter((el) => el.category === 'pizzas')
   const snacks = products?.filter((el) => el.category === 'snacks')
