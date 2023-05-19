@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useCallback, useState } from 'react'
 import * as Styled from './styles'
 
 import { IProducts } from '../../../../models/IProducts'
@@ -8,14 +8,8 @@ interface ProductsBlockProps {
   products: IProducts[]
 }
 
-// const initialProductState = {
-//   id: 0,
-//   category: '',
-//   title: '',
-//   isPizza: true,
-//   price: 0,
-// }
-
+//TODO: Add conditional rendering
+//TODO: Add Skeleton as a Prender
 const ProductsBlock: FC<ProductsBlockProps> = ({ products }) => {
   const [activeModal, setActiveModal] = useState(false)
   const [product, setProduct] = useState<IProducts>()
@@ -24,13 +18,16 @@ const ProductsBlock: FC<ProductsBlockProps> = ({ products }) => {
   const snacks = products?.filter((el) => el.category === 'snacks')
   const drinks = products?.filter((el) => el.category === 'drinks')
 
-  const selectedProduct = (category: string, id: number) => {
-    setActiveModal(true)
-    const selectedItem = products
-      ?.filter((el) => el.category === category)
-      .filter((item) => item.id === id)
-    setProduct(selectedItem[0])
-  }
+  const selectedProduct = useCallback(
+    (category: string, id: number) => {
+      setActiveModal(true)
+      const selectedItem = products
+        ?.filter((el) => el.category === category)
+        .filter((item) => item.id === id)
+      setProduct(selectedItem[0])
+    },
+    [products]
+  )
 
   return (
     <Styled.Root>
@@ -107,11 +104,13 @@ const ProductsBlock: FC<ProductsBlockProps> = ({ products }) => {
         })}
       </Styled.ProductList>
 
-      <ProductModal
-        active={activeModal}
-        setActive={setActiveModal}
-        product={product}
-      />
+      {product && (
+        <ProductModal
+          active={activeModal}
+          setActive={setActiveModal}
+          product={product}
+        />
+      )}
     </Styled.Root>
   )
 }

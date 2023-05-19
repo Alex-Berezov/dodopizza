@@ -1,40 +1,49 @@
-import React, { FC, useCallback, useState } from 'react'
+import React, { FC, useCallback, useEffect, useState } from 'react'
 import * as Styled from './styles'
 import { AddToCartButton } from '../AddToCartButton'
-
-import peperoniTraditionalSM from '../../assets/images/peperoniTraditionalSM.png'
-import peperoniTraditionalMD from '../../assets/images/peperoniTraditionalMD.png'
-import peperoniTraditionalLG from '../../assets/images/peperoniTraditionalLG.png'
 import { IProducts } from '../../models/IProducts'
 
 interface PizzaModalProps {
   product: IProducts
 }
 
+interface IPizzaSizes {
+  [key: string]: number | undefined
+}
+
+interface IPizzaDough {
+  [key: string]: string | undefined
+}
+
 const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState('medium')
   const [selectedDough, setSelectedDough] = useState('traditional')
   const [disabledThin, setDisabledThin] = useState(false)
-  const [image, setImage] = useState(peperoniTraditionalMD)
+  const [pizzaSizes, setPizzaSizes] = useState<IPizzaSizes>({
+    ...product.pizzaSizes,
+  })
+  const [pizzaDough, setPizzaDough] = useState<IPizzaDough>({
+    ...product.pizzaDough,
+  })
+  const [pizzaImages, setPizzaImages] = useState({ ...product.pizzasImages })
+  const [image, setImage] = useState(pizzaImages.medium)
 
-  console.log('====================================')
-  console.log('product >>', product)
-  console.log('====================================')
+  useEffect(() => {
+    setPizzaSizes({ ...product.pizzaSizes })
+    setPizzaDough({ ...product.pizzaDough })
+    setPizzaImages({ ...product.pizzasImages })
+    setImage(pizzaImages.medium)
 
-  console.log('====================================')
-  console.log('selectedSize >>', selectedSize)
-  console.log('====================================')
-
-  const pizzaSizes: Record<string, number> = {
-    small: 25,
-    medium: 30,
-    large: 35,
-  }
-
-  const pizzaDough: Record<string, string> = {
-    traditional: 'традиционное',
-    thin: 'тонкое',
-  }
+    return () => {
+      setSelectedSize('medium')
+      setSelectedDough('traditional')
+      setDisabledThin(false)
+      setPizzaSizes({})
+      setPizzaDough({})
+      setPizzaImages({})
+      setImage('')
+    }
+  }, [product, pizzaImages.medium])
 
   const handleSelectedSize = useCallback(
     (size: string) => {
@@ -49,15 +58,34 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
         setDisabledThin(false)
       }
 
-      if (size === 'small') {
-        setImage(peperoniTraditionalSM)
-      } else if (size === 'medium') {
-        setImage(peperoniTraditionalMD)
-      } else {
-        setImage(peperoniTraditionalLG)
+      if (size === 'small' && selectedDough === 'traditional') {
+        setImage(pizzaImages.small)
+      }
+      if (size === 'medium' && selectedDough === 'traditional') {
+        setImage(pizzaImages.medium)
+      }
+      if (size === 'large' && selectedDough === 'traditional') {
+        setImage(pizzaImages.large)
+      }
+
+      if (size === 'small' && selectedDough === 'thin') {
+        setImage(pizzaImages.small)
+      }
+      if (size === 'medium' && selectedDough === 'thin') {
+        setImage(pizzaImages.mediumT)
+      }
+      if (size === 'large' && selectedDough === 'thin') {
+        setImage(pizzaImages.largeT)
       }
     },
-    [selectedDough]
+    [
+      pizzaImages.large,
+      pizzaImages.largeT,
+      pizzaImages.medium,
+      pizzaImages.mediumT,
+      pizzaImages.small,
+      selectedDough,
+    ]
   )
 
   const handleSelectedDough = useCallback(
@@ -67,8 +95,27 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
       } else {
         setSelectedDough(dough)
       }
+
+      if (selectedSize === 'medium' && dough === 'thin') {
+        setImage(pizzaImages.mediumT)
+      }
+      if (selectedSize === 'large' && dough === 'thin') {
+        setImage(pizzaImages.largeT)
+      }
+      if (selectedSize === 'medium' && dough === 'traditional') {
+        setImage(pizzaImages.medium)
+      }
+      if (selectedSize === 'large' && dough === 'traditional') {
+        setImage(pizzaImages.large)
+      }
     },
-    [selectedSize]
+    [
+      pizzaImages.large,
+      pizzaImages.largeT,
+      pizzaImages.medium,
+      pizzaImages.mediumT,
+      selectedSize,
+    ]
   )
 
   const heandleClick = () => {

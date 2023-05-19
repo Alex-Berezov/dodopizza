@@ -10,17 +10,9 @@ interface OftenOrderedProps {
   products: IProducts[]
 }
 
-const initialProductState = {
-  id: 0,
-  category: '',
-  title: '',
-  isPizza: true,
-  price: 0,
-}
-
 const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
   const [activeModal, setActiveModal] = useState(false)
-  const [product, setProduct] = useState(initialProductState)
+  const [product, setProduct] = useState()
 
   return (
     <Styled.Root>
@@ -82,11 +74,13 @@ const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
         </Styled.ContainerItem>
       </Styled.Container>
 
-      <ProductModal
-        active={activeModal}
-        setActive={setActiveModal}
-        product={product}
-      />
+      {product && (
+        <ProductModal
+          active={activeModal}
+          setActive={setActiveModal}
+          product={product}
+        />
+      )}
     </Styled.Root>
   )
 }
