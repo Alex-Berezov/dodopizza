@@ -27,10 +27,12 @@ const Header: FC = () => {
       })
     })
 
-    headerRef.current && observer.observe(headerRef.current)
+    let headerRefCurrent = headerRef.current
+
+    headerRefCurrent && observer.observe(headerRefCurrent)
 
     return () => {
-      headerRef.current && observer.unobserve(headerRef.current)
+      headerRefCurrent && observer.unobserve(headerRefCurrent)
     }
   }, [])
 

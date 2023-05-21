@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import * as Styled from './styles'
 import { AddToCartButton } from '../AddToCartButton'
 
-import dodster from '../../assets/images/dodster.png'
 import { IProducts } from '../../models/IProducts'
 
 interface SimpleProductModalProps {

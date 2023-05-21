@@ -12,6 +12,7 @@ interface OftenOrderedProps {
 
 const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
   const [activeModal, setActiveModal] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [product, setProduct] = useState()
 
   return (
