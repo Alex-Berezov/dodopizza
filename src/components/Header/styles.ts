@@ -67,40 +67,6 @@ export const Logo = styled.a`
 
 export const LogoImg = styled.img``
 
-export const Search = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-
-  ${respondTo.xs} {
-    margin-bottom: 10px;
-  }
-`
-
-export const SearchImg = styled.img`
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-`
-
-export const SearchInput = styled.input`
-  outline: none;
-  padding: 5px 5px 5px 30px;
-  border-radius: 5px;
-  border: 1px solid ${(props) => props.theme.colors.black};
-  width: 250px;
-
-  ${respondTo.sm} {
-    width: 150px;
-  }
-
-  ${respondTo.xs} {
-    width: 250px;
-  }
-`
-
 export const EmptyBlock = styled.div<HeaderProps>`
   display: ${(props) => (props.visibleHeader ? 'none' : 'block')};
   height: 58px;
