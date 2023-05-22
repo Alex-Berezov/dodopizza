@@ -10,13 +10,14 @@
     "@testing-library/dom": "7.21.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/styled-components": "^5.1.26",
-    "axios": "^1.4.0",
+    "msw": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "16.8.0",
@@ -50,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-mock-store": "^1.5.4"
   }
 }

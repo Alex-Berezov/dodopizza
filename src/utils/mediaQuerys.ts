@@ -1,4 +1,4 @@
-const customMediaQuery = (maxWidth: number) =>
+export const customMediaQuery = (maxWidth: number) =>
   `@media (max-width: ${maxWidth}px)`
 
 export const respondTo = {
