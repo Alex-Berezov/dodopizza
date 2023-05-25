@@ -9,8 +9,6 @@ interface ProductsBlockProps {
   products: IProducts[]
 }
 
-//TODO: Add conditional rendering
-//TODO: Add Skeleton as a Prender
 const ProductsBlock: FC<ProductsBlockProps> = ({ products }) => {
   const [activeModal, setActiveModal] = useState(false)
   const [product, setProduct] = useState<IProducts>()
@@ -38,6 +36,7 @@ const ProductsBlock: FC<ProductsBlockProps> = ({ products }) => {
           {pizzas?.map((item) => {
             return (
               <Styled.ProductItem
+                data-testid='pizza-element'
                 key={item.id}
                 onClick={() => selectedProduct(item.category, item.id)}
               >
@@ -66,6 +65,7 @@ const ProductsBlock: FC<ProductsBlockProps> = ({ products }) => {
           {snacks?.map((item) => {
             return (
               <Styled.ProductItem
+                data-testid='snack-element'
                 key={item.id}
                 onClick={() => selectedProduct(item.category, item.id)}
               >
@@ -94,6 +94,7 @@ const ProductsBlock: FC<ProductsBlockProps> = ({ products }) => {
           {drinks?.map((item) => {
             return (
               <Styled.ProductItem
+                data-testid='drink-element'
                 key={item.id}
                 isDrinks={true}
                 onClick={() => selectedProduct(item.category, item.id)}

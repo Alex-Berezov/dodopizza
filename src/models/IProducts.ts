@@ -16,7 +16,7 @@ export interface IProducts {
   pizzasImages?: PizzaImages
   pizzaSizes?: PizzaSizes
   pizzaDough?: PizzaDough
-  weight?: number
+  weight?: number | string
   image?: string
   price: number
 }

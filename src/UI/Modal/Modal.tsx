@@ -9,7 +9,11 @@ interface ModalProps {
 
 const Modal: FC<ModalProps> = ({ active, setActive, children }) => {
   return (
-    <Styled.Root modalActive={active} onClick={() => setActive(false)}>
+    <Styled.Root
+      modalActive={active}
+      onClick={() => setActive(false)}
+      data-testid='modal'
+    >
       <Styled.Content
         contentActive={active}
         onClick={(e) => e.stopPropagation()}

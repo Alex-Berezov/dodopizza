@@ -6,7 +6,7 @@ import * as Styled from './styles'
 const ProductsSkeleton: FC = () => {
   return (
     <Styled.ProductList>
-      <Styled.ProductItem>
+      <Styled.ProductItem data-testid='skeleton1'>
         <Styled.Main>
           <Styled.MainPicture>
             <Skeleton width='100%' height='100%' borderRadius='100%' />
@@ -23,7 +23,7 @@ const ProductsSkeleton: FC = () => {
         </Styled.Footer>
       </Styled.ProductItem>
 
-      <Styled.ProductItem>
+      <Styled.ProductItem data-testid='skeleton2'>
         <Styled.Main>
           <Styled.MainPicture>
             <Skeleton width='100%' height='100%' borderRadius='100%' />
@@ -40,7 +40,7 @@ const ProductsSkeleton: FC = () => {
         </Styled.Footer>
       </Styled.ProductItem>
 
-      <Styled.ProductItem>
+      <Styled.ProductItem data-testid='skeleton3'>
         <Styled.Main>
           <Styled.MainPicture>
             <Skeleton width='100%' height='100%' borderRadius='100%' />
@@ -57,7 +57,7 @@ const ProductsSkeleton: FC = () => {
         </Styled.Footer>
       </Styled.ProductItem>
 
-      <Styled.ProductItem>
+      <Styled.ProductItem data-testid='skeleton4'>
         <Styled.Main>
           <Styled.MainPicture>
             <Skeleton width='100%' height='100%' borderRadius='100%' />
