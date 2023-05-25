@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Проект копия сайта https://dodopizza.ru/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+LiveDemo: https://dodo-pizzas.netlify.app/
 
 ## Available Scripts
 
