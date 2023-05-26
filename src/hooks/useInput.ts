@@ -8,7 +8,7 @@ export default function useInput(initialValue: string) {
     setValue(e.target.value)
   }
 
-  const onBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onBlur = () => {
     setIsTouched(true)
   }
 

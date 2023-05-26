@@ -1,3 +1,4 @@
+import React from 'react'
 import { setupServer } from 'msw/node'
 import { rest } from 'msw'
 import { productsAPI } from './ProductsService'

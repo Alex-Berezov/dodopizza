@@ -1,20 +1,30 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import { render } from '@testing-library/react'
+import {
+  render,
+  RenderOptions,
+  RenderResult,
+  Queries,
+} from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
+import { ReactElement, JSXElementConstructor } from 'react'
 
-const renderHook = (callback: Function) => {
-  let result: any
+type CallbackFunction<
+  Q extends Queries = typeof import('@testing-library/dom/types/queries')
+> = () => RenderResult<Q>
+
+const renderHook = <
+  Q extends Queries = typeof import('@testing-library/dom/types/queries')
+>(
+  callback: CallbackFunction<Q>
+) => {
+  let result: RenderResult<Q> | undefined
 
   act(() => {
     result = callback()
   })
 
   return {
-    result,
-    rerender: (newCallback: Function) => {
+    result: result as RenderResult<Q>,
+    rerender: (newCallback: CallbackFunction<Q>) => {
       act(() => {
         result = newCallback()
       })
@@ -22,8 +32,17 @@ const renderHook = (callback: Function) => {
   }
 }
 
-const customRender = (ui: any, options?: any) => {
-  return render(ui, { wrapper: options?.wrapper })
+type CustomRenderOptions<
+  Q extends Queries = typeof import('@testing-library/dom/types/queries')
+> = Omit<RenderOptions<Q, HTMLElement>, 'queries'>
+
+const customRender = <
+  Q extends Queries = typeof import('@testing-library/dom/types/queries')
+>(
+  ui: ReactElement<unknown, string | JSXElementConstructor<unknown>>,
+  options?: CustomRenderOptions<Q>
+): RenderResult<Q> => {
+  return render<Q, HTMLElement>(ui, options as RenderOptions<Q, HTMLElement>)
 }
 
 export { renderHook, act, customRender }

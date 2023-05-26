@@ -41,12 +41,12 @@ describe('Product Block tests', () => {
 
     // Проверка наличия и содержимого элементов в модальном окне
     const pizzaTitle = pizzas[0].title
-    const pizzaDescription = pizzas[0].description
+    const pizzaDescription = pizzas[0].description || ''
     const pizzaPrice = pizzas[0].price
     // и т.д.
 
     expect(modalElement).toHaveTextContent(pizzaTitle)
-    expect(modalElement).toHaveTextContent(pizzaDescription!)
+    expect(modalElement).toHaveTextContent(pizzaDescription)
     expect(modalElement).toHaveTextContent(pizzaPrice.toString())
   })
 
@@ -67,12 +67,12 @@ describe('Product Block tests', () => {
 
     // Проверка наличия и содержимого элементов в модальном окне
     const snacksTitle = snacks[0].title
-    const snacksDescription = snacks[0].description
+    const snacksDescription = snacks[0].description || ''
     const snacksPrice = snacks[0].price
     // и т.д.
 
     expect(modalElement).toHaveTextContent(snacksTitle)
-    expect(modalElement).toHaveTextContent(snacksDescription!)
+    expect(modalElement).toHaveTextContent(snacksDescription)
     expect(modalElement).toHaveTextContent(snacksPrice.toString())
   })
 

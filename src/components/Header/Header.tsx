@@ -8,7 +8,7 @@ import { CartButton } from '../../UI/HeaderButton'
 import { HeaderCart } from './components/HeaderCart'
 
 const Header: FC = () => {
-  let screenWidth = window.innerWidth
+  const screenWidth = window.innerWidth
   const headerRef = useRef<HTMLDivElement>(null)
   const [visibleHeader, setVisibleHeader] = useState(false)
   const [cartIsOpen, setCartIsOpen] = useState(false)
@@ -24,7 +24,7 @@ const Header: FC = () => {
       })
     })
 
-    let headerRefCurrent = headerRef.current
+    const headerRefCurrent = headerRef.current
 
     headerRefCurrent && observer.observe(headerRefCurrent)
 
