@@ -15,21 +15,21 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.x'
+          node-version: '16.x'
 
-      - name: Cache Node.js modules
+      - name: Cache Yarn modules
         uses: actions/cache@v2
         with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.yarn
+          key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.OS }}-node-
-
+            ${{ runner.OS }}-yarn-
+            
       - name: Install Dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Run Linter
-        run: npm run lint
+        run: yarn lint
 
       - name: Run Tests
-        run: npm test
+        run: yarn test
