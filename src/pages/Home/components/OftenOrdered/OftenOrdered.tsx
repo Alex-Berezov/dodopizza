@@ -12,26 +12,30 @@ interface OftenOrderedProps {
 
 const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
   const [activeModal, setActiveModal] = useState(false)
-  const [product, setProduct] = useState()
+  const [product, setProduct] = useState<IProducts>()
 
   const pizzas = products?.filter((el) => el.category === 'pizzas')
   const snacks = products?.filter((el) => el.category === 'snacks')
+
+  const selectedProduct = (id: number) => {
+    setProduct(products?.find((el) => el.id === id))
+  }
 
   return (
     <Styled.Root>
       <Styled.H2>Часто заказывают</Styled.H2>
 
       <Styled.Container>
-        <Styled.ContainerItem>
+        <Styled.ContainerItem onClick={() => selectedProduct(pizzas[0].id)}>
           <Styled.ContainerItemPicture>
             <Styled.ContainerItemPictureImg src={peperoniFresh} />
           </Styled.ContainerItemPicture>
           <Styled.ContainerItemInfo>
             <Styled.ContainerItemInfoTitle>
-              Пепперони фреш
+              {pizzas[0].title}
             </Styled.ContainerItemInfoTitle>
             <Styled.ContainerItemInfoPrice>
-              от 299 ₽
+              от {pizzas[0].title} ₽
             </Styled.ContainerItemInfoPrice>
           </Styled.ContainerItemInfo>
         </Styled.ContainerItem>
@@ -42,9 +46,11 @@ const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
           </Styled.ContainerItemPicture>
           <Styled.ContainerItemInfo>
             <Styled.ContainerItemInfoTitle>
-              Додстер
+              {snacks[0].title}
             </Styled.ContainerItemInfoTitle>
-            <Styled.ContainerItemInfoPrice>169 ₽</Styled.ContainerItemInfoPrice>
+            <Styled.ContainerItemInfoPrice>
+              {snacks[0].price} ₽
+            </Styled.ContainerItemInfoPrice>
           </Styled.ContainerItemInfo>
         </Styled.ContainerItem>
 
