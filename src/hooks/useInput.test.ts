@@ -25,7 +25,7 @@ describe('useInput', () => {
     const { result } = renderHook(() => useInput(''))
 
     act(() => {
-      result.current.onBlur({} as React.ChangeEvent<HTMLInputElement>)
+      result.current.onBlur()
     })
 
     expect(result.current.isTouched).toBe(true)
