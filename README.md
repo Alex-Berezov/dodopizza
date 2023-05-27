@@ -1,6 +1,6 @@
 # LiveDemo: https://dodo-pizzas.netlify.app/
 
-## Стэк:
+## Stack:
 
 - React,
 - TypeScript,
@@ -8,3 +8,6 @@
 - RTK Query,
 - Тесты: Jest / React testing library
 - ESLint
+- CI/CD:
+  -- CI: GitHub actions
+  -- CD: netlify

@@ -14,8 +14,8 @@ const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
   const [activeModal, setActiveModal] = useState(false)
   const [product, setProduct] = useState()
 
-  // const pizzas = products?.filter((el) => el.category === 'pizzas')
-  // const snacks = products?.filter((el) => el.category === 'snacks')
+  const pizzas = products?.filter((el) => el.category === 'pizzas')
+  const snacks = products?.filter((el) => el.category === 'snacks')
 
   return (
     <Styled.Root>
