@@ -13,17 +13,19 @@ interface OftenOrderedProps {
 const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
   const [activeModal, setActiveModal] = useState(false)
   const [product, setProduct] = useState<IProducts>()
+  const [some, setSome] = useState('')
 
   const pizzas = products?.filter((el) => el.category === 'pizzas')
   const snacks = products?.filter((el) => el.category === 'snacks')
 
   const selectedProduct = (id: number) => {
+    setSome('123')
     setProduct(products?.find((el) => el.id === id))
   }
 
   return (
     <Styled.Root>
-      <Styled.H2>Часто заказывают</Styled.H2>
+      <Styled.H2>Часто заказывают {some}</Styled.H2>
 
       <Styled.Container>
         <Styled.ContainerItem onClick={() => selectedProduct(pizzas[0].id)}>
