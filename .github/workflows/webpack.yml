@@ -36,3 +36,7 @@ jobs:
 
       - name: Run Tests
         run: yarn test
+
+      - name: Trigger Netlify Build
+        run: curl -X POST -d {} https://api.netlify.com/build_hooks/6472127228375604e1a2ef7a
+        if: success()
