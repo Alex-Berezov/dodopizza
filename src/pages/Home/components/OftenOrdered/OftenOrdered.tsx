@@ -32,10 +32,10 @@ const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
           </Styled.ContainerItemPicture>
           <Styled.ContainerItemInfo>
             <Styled.ContainerItemInfoTitle>
-              {pizzas[0].title}
+              {pizzas && pizzas[0].title}
             </Styled.ContainerItemInfoTitle>
             <Styled.ContainerItemInfoPrice>
-              от {pizzas[0].title} ₽
+              от {pizzas && pizzas[0].price} ₽
             </Styled.ContainerItemInfoPrice>
           </Styled.ContainerItemInfo>
         </Styled.ContainerItem>
@@ -46,10 +46,10 @@ const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
           </Styled.ContainerItemPicture>
           <Styled.ContainerItemInfo>
             <Styled.ContainerItemInfoTitle>
-              {snacks[0].title}
+              {snacks && snacks[0].title}
             </Styled.ContainerItemInfoTitle>
             <Styled.ContainerItemInfoPrice>
-              {snacks[0].price} ₽
+              {snacks && snacks[0].price} ₽
             </Styled.ContainerItemInfoPrice>
           </Styled.ContainerItemInfo>
         </Styled.ContainerItem>
