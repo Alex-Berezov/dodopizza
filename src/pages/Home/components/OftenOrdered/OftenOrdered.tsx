@@ -1,9 +1,6 @@
 import React, { FC, useState } from 'react'
 import * as Styled from './styles'
 import { ProductModal } from '../ProductModal'
-
-import peperoniFresh from '../../../../assets/images/peperoni-fresh.webp'
-import dodster from '../../../../assets/images/dodster.png'
 import { IProducts } from '../../../../models/IProducts'
 
 interface OftenOrderedProps {
@@ -19,6 +16,7 @@ const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
 
   const selectedProduct = (id: number) => {
     setProduct(products?.find((el) => el.id === id))
+    setActiveModal(true)
   }
 
   return (
@@ -26,9 +24,13 @@ const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
       <Styled.H2>Часто заказывают</Styled.H2>
 
       <Styled.Container>
-        <Styled.ContainerItem onClick={() => selectedProduct(pizzas[0].id)}>
+        <Styled.ContainerItem
+          onClick={() => selectedProduct(pizzas && pizzas[0].id)}
+        >
           <Styled.ContainerItemPicture>
-            <Styled.ContainerItemPictureImg src={peperoniFresh} />
+            <Styled.ContainerItemPictureImg
+              src={pizzas && pizzas[0].pizzasImages?.main}
+            />
           </Styled.ContainerItemPicture>
           <Styled.ContainerItemInfo>
             <Styled.ContainerItemInfoTitle>
@@ -40,44 +42,52 @@ const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
           </Styled.ContainerItemInfo>
         </Styled.ContainerItem>
 
-        <Styled.ContainerItem>
+        <Styled.ContainerItem
+          onClick={() => selectedProduct(pizzas && pizzas[3].id)}
+        >
           <Styled.ContainerItemPicture>
-            <Styled.ContainerItemPictureImg src={dodster} />
+            <Styled.ContainerItemPictureImg
+              src={pizzas && pizzas[3].pizzasImages?.main}
+            />
+          </Styled.ContainerItemPicture>
+          <Styled.ContainerItemInfo>
+            <Styled.ContainerItemInfoTitle>
+              {pizzas && pizzas[3].title}
+            </Styled.ContainerItemInfoTitle>
+            <Styled.ContainerItemInfoPrice>
+              от {pizzas && pizzas[3].price} ₽
+            </Styled.ContainerItemInfoPrice>
+          </Styled.ContainerItemInfo>
+        </Styled.ContainerItem>
+
+        <Styled.ContainerItem
+          onClick={() => selectedProduct(snacks && snacks[0].id)}
+        >
+          <Styled.ContainerItemPicture>
+            <Styled.ContainerItemPictureImg src={snacks && snacks[0].image} />
           </Styled.ContainerItemPicture>
           <Styled.ContainerItemInfo>
             <Styled.ContainerItemInfoTitle>
               {snacks && snacks[0].title}
             </Styled.ContainerItemInfoTitle>
             <Styled.ContainerItemInfoPrice>
-              {snacks && snacks[0].price} ₽
+              от {snacks && snacks[0].price} ₽
             </Styled.ContainerItemInfoPrice>
           </Styled.ContainerItemInfo>
         </Styled.ContainerItem>
 
-        <Styled.ContainerItem>
+        <Styled.ContainerItem
+          onClick={() => selectedProduct(snacks && snacks[3].id)}
+        >
           <Styled.ContainerItemPicture>
-            <Styled.ContainerItemPictureImg src={peperoniFresh} />
+            <Styled.ContainerItemPictureImg src={snacks && snacks[3].image} />
           </Styled.ContainerItemPicture>
           <Styled.ContainerItemInfo>
             <Styled.ContainerItemInfoTitle>
-              Пепперони фреш
+              {snacks && snacks[3].title}
             </Styled.ContainerItemInfoTitle>
             <Styled.ContainerItemInfoPrice>
-              от 299 ₽
-            </Styled.ContainerItemInfoPrice>
-          </Styled.ContainerItemInfo>
-        </Styled.ContainerItem>
-
-        <Styled.ContainerItem>
-          <Styled.ContainerItemPicture>
-            <Styled.ContainerItemPictureImg src={peperoniFresh} />
-          </Styled.ContainerItemPicture>
-          <Styled.ContainerItemInfo>
-            <Styled.ContainerItemInfoTitle>
-              Пепперони фреш
-            </Styled.ContainerItemInfoTitle>
-            <Styled.ContainerItemInfoPrice>
-              от 299 ₽
+              от {snacks && snacks[3].price} ₽
             </Styled.ContainerItemInfoPrice>
           </Styled.ContainerItemInfo>
         </Styled.ContainerItem>
