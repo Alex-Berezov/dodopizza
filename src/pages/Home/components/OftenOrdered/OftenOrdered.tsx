@@ -24,7 +24,7 @@ const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
     <Styled.Root>
       <Styled.H2>Часто заказывают</Styled.H2>
 
-      {!products?.length ? (
+      {products?.length ? (
         <Styled.Container>
           <Styled.ContainerItem
             onClick={() => selectedProduct(pizzas && pizzas[0].id)}
