@@ -2,6 +2,8 @@ import React, { FC, useCallback, useEffect, useState } from 'react'
 import * as Styled from './styles'
 import { AddToCartButton } from '../AddToCartButton'
 import { IProducts } from '../../models/IProducts'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../store/reducers/cartSlice'
 
 interface PizzaModalProps {
   product: IProducts
@@ -16,6 +18,7 @@ interface IPizzaDough {
 }
 
 const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
+  const dispatch = useDispatch()
   const [selectedSize, setSelectedSize] = useState('medium')
   const [selectedDough, setSelectedDough] = useState('traditional')
   const [disabledThin, setDisabledThin] = useState(false)
@@ -118,8 +121,14 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
     ]
   )
 
-  const heandleClick = () => {
-    console.log('Click')
+  const handleAddToCart  = () => {
+    const productToCart = {
+      ...product,
+      selectedSize,
+      selectedDough
+    }
+
+    dispatch(addToCart(productToCart))
   }
 
   return (
@@ -189,7 +198,7 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
             </Styled.DoughLabel>
           </Styled.DoughSelector>
         </Styled.DoughSelectorBlock>
-        <AddToCartButton onClick={heandleClick}>
+        <AddToCartButton onClick={handleAddToCart}>
           Добавить в корзину за {product.price} ₽
         </AddToCartButton>
       </Styled.PizzaInfoBlock>

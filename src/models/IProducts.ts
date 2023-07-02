@@ -19,4 +19,5 @@ export interface IProducts {
   weight?: number | string
   image?: string
   price: number
+  quantity?: number
 }

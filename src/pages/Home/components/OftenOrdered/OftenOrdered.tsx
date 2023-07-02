@@ -3,14 +3,12 @@ import * as Styled from './styles'
 import { ProductModal } from '../ProductModal'
 import { IProducts } from '../../../../models/IProducts'
 import { OftenOrderedSkeleton } from '../../../../components/Skeletons/OftenOrderedSkeleton'
+import { productsAPI } from '../../../../services/ProductsService'
 
-interface OftenOrderedProps {
-  products: IProducts[]
-}
-
-const OftenOrdered: FC<OftenOrderedProps> = ({ products }) => {
+const OftenOrdered: FC = () => {
   const [activeModal, setActiveModal] = useState(false)
   const [product, setProduct] = useState<IProducts>()
+  const { data: products } = productsAPI.useFetchAllProductsQuery(undefined) as { data: IProducts[] }
 
   const pizzas = products?.filter((el) => el.category === 'pizzas')
   const snacks = products?.filter((el) => el.category === 'snacks')

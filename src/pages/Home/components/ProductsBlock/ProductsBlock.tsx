@@ -4,14 +4,13 @@ import * as Styled from './styles'
 import { IProducts } from '../../../../models/IProducts'
 import { ProductModal } from '../ProductModal'
 import { ProductsSkeleton } from '../../../../components/Skeletons/ProductsSkeleton'
+import { productsAPI } from '../../../../services/ProductsService'
 
-interface ProductsBlockProps {
-  products: IProducts[]
-}
-
-const ProductsBlock: FC<ProductsBlockProps> = ({ products }) => {
+const ProductsBlock: FC = () => {
   const [activeModal, setActiveModal] = useState(false)
   const [product, setProduct] = useState<IProducts>()
+
+  const { data: products } = productsAPI.useFetchAllProductsQuery(undefined) as { data: IProducts[] }
 
   const pizzas = products?.filter((el) => el.category === 'pizzas')
   const snacks = products?.filter((el) => el.category === 'snacks')

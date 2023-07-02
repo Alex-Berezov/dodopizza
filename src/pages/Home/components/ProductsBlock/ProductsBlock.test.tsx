@@ -10,7 +10,7 @@ import '@testing-library/jest-dom/extend-expect'
 const renderProductsBlock = (products: IProducts[] | []) => {
   return render(
     <ThemeProvider theme={theme}>
-      <ProductsBlock products={products} />
+      <ProductsBlock />
     </ThemeProvider>
   )
 }
