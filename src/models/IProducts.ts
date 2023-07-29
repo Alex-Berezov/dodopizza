@@ -1,7 +1,4 @@
-type PizzaImages = Record<
-  'main' | 'small' | 'medium' | 'large' | 'mediumT' | 'largeT',
-  string
->
+type PizzaImages = Record<'main' | 'small' | 'medium' | 'large' | 'mediumT' | 'largeT', string>
 
 type PizzaSizes = Record<'small' | 'medium' | 'large', number>
 

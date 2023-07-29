@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 
-export const Root = styled.div`
+export const Root = styled.div``
+
+export const CartItems = styled.div``
+
+export const CartItem = styled.div`
   position: relative;
   padding: 12px 16px;
   background: ${(props) => props.theme.colors.white};
-  margin-bottom: 8px;
+  margin-top: 10px;
 `
 
 export const DeleteBtn = styled.button`

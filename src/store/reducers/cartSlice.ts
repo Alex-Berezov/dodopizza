@@ -7,7 +7,7 @@ interface CartState {
 }
 
 const initialState: CartState = {
-  items: []
+  items: [],
 }
 
 export const cartSlice = createSlice({
@@ -15,14 +15,17 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<IProducts>) => {
-        const productIndex = state.items.findIndex(item => item.id === action.payload.id)
+      const product = state.items.find((item) => item.id === action.payload.id)
 
-        if (productIndex >= 0) {
-          state.items[productIndex].quantity += 1
+      if (product) {
+        if (product.quantity !== undefined) {
+          product.quantity += 1
         } else {
-          state.items.push({ ...action.payload, quantity: 1 })
+          product.quantity = 1
         }
-      },
+      } else {
+        state.items.push({ ...action.payload, quantity: 1 })
+      }
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload)

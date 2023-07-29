@@ -4,7 +4,7 @@ import { Cart } from '../../../../UI/Cart'
 import { AddToCartButton } from '../../../../UI/AddToCartButton'
 import { CartItem } from '../../../../UI/CartItem'
 import { useSelector } from 'react-redux'
-import { selectCartItems } from "../../../../store/reducers/cartSlice"
+import { selectCartItems } from '../../../../store/reducers/cartSlice'
 
 interface HeaderCartProps {
   cartIsOpen: boolean
@@ -14,16 +14,16 @@ interface HeaderCartProps {
 const HeaderCart: FC<HeaderCartProps> = ({ cartIsOpen, setCartIsOpen }) => {
   const cartItems = useSelector(selectCartItems)
 
-  console.log('====================================');
-  console.log('cartItems >>', cartItems);
-  console.log('====================================');
+  console.log('====================================')
+  console.log('cartItems >>', cartItems)
+  console.log('====================================')
 
   const totalItems = cartItems.reduce((total, item) => total + (item.quantity ?? 0), 0)
   const totalPrice = cartItems.reduce((total, item) => total + item.price * (item.quantity ?? 0), 0)
 
-  console.log('====================================');
-  console.log('totalItems >>', totalItems);
-  console.log('====================================');
+  console.log('====================================')
+  console.log('totalItems >>', totalItems)
+  console.log('====================================')
 
   const heandleClick = () => {
     console.log('Click')
@@ -32,19 +32,19 @@ const HeaderCart: FC<HeaderCartProps> = ({ cartIsOpen, setCartIsOpen }) => {
   return (
     <Styled.Root>
       <Cart isOpen={cartIsOpen} onClose={setCartIsOpen}>
-        <Styled.Title>{totalItems} товара на {totalPrice} ₽</Styled.Title>
+        <Styled.Title>
+          {totalItems} товара на {totalPrice} ₽
+        </Styled.Title>
 
-        <CartItem />
+        <CartItem cartItems={cartItems} />
 
         <Styled.Footer>
           <Styled.Summary>
-            <span>2 товара</span>
+            <span>{totalItems} товара</span>
             <span>на сумму</span>
-            <span>688 ₽</span>
+            <span>{totalPrice} ₽</span>
           </Styled.Summary>
-          <AddToCartButton onClick={heandleClick}>
-            Оформить заказ
-          </AddToCartButton>
+          <AddToCartButton onClick={heandleClick}>Оформить заказ</AddToCartButton>
         </Styled.Footer>
       </Cart>
     </Styled.Root>

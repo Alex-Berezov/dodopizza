@@ -13,8 +13,13 @@ const OftenOrdered: FC = () => {
   const pizzas = products?.filter((el) => el.category === 'pizzas')
   const snacks = products?.filter((el) => el.category === 'snacks')
 
-  const selectedProduct = (id: number) => {
-    setProduct(products?.find((el) => el.id === id))
+  const selectedProduct = (id: number, category: string) => {
+    if (category === 'pizzas') {
+      setProduct(pizzas?.find((el) => el.id === id))
+    }
+    if (category === 'snacks') {
+      setProduct(snacks?.find((el) => el.id === id))
+    }
     setActiveModal(true)
   }
 
@@ -24,71 +29,43 @@ const OftenOrdered: FC = () => {
 
       {products?.length ? (
         <Styled.Container>
-          <Styled.ContainerItem
-            onClick={() => selectedProduct(pizzas && pizzas[0].id)}
-          >
+          <Styled.ContainerItem onClick={() => selectedProduct(pizzas && pizzas[0].id, 'pizzas')}>
             <Styled.ContainerItemPicture>
-              <Styled.ContainerItemPictureImg
-                src={pizzas && pizzas[0].pizzasImages?.main}
-              />
+              <Styled.ContainerItemPictureImg src={pizzas && pizzas[0].pizzasImages?.main} />
             </Styled.ContainerItemPicture>
             <Styled.ContainerItemInfo>
-              <Styled.ContainerItemInfoTitle>
-                {pizzas && pizzas[0].title}
-              </Styled.ContainerItemInfoTitle>
-              <Styled.ContainerItemInfoPrice>
-                от {pizzas && pizzas[0].price} ₽
-              </Styled.ContainerItemInfoPrice>
+              <Styled.ContainerItemInfoTitle>{pizzas && pizzas[0].title}</Styled.ContainerItemInfoTitle>
+              <Styled.ContainerItemInfoPrice>от {pizzas && pizzas[0].price} ₽</Styled.ContainerItemInfoPrice>
             </Styled.ContainerItemInfo>
           </Styled.ContainerItem>
 
-          <Styled.ContainerItem
-            onClick={() => selectedProduct(pizzas && pizzas[3].id)}
-          >
+          <Styled.ContainerItem onClick={() => selectedProduct(pizzas && pizzas[3].id, 'pizzas')}>
             <Styled.ContainerItemPicture>
-              <Styled.ContainerItemPictureImg
-                src={pizzas && pizzas[3].pizzasImages?.main}
-              />
+              <Styled.ContainerItemPictureImg src={pizzas && pizzas[3].pizzasImages?.main} />
             </Styled.ContainerItemPicture>
             <Styled.ContainerItemInfo>
-              <Styled.ContainerItemInfoTitle>
-                {pizzas && pizzas[3].title}
-              </Styled.ContainerItemInfoTitle>
-              <Styled.ContainerItemInfoPrice>
-                от {pizzas && pizzas[3].price} ₽
-              </Styled.ContainerItemInfoPrice>
+              <Styled.ContainerItemInfoTitle>{pizzas && pizzas[3].title}</Styled.ContainerItemInfoTitle>
+              <Styled.ContainerItemInfoPrice>от {pizzas && pizzas[3].price} ₽</Styled.ContainerItemInfoPrice>
             </Styled.ContainerItemInfo>
           </Styled.ContainerItem>
 
-          <Styled.ContainerItem
-            onClick={() => selectedProduct(snacks && snacks[0].id)}
-          >
+          <Styled.ContainerItem onClick={() => selectedProduct(snacks && snacks[0].id, 'snacks')}>
             <Styled.ContainerItemPicture>
               <Styled.ContainerItemPictureImg src={snacks && snacks[0].image} />
             </Styled.ContainerItemPicture>
             <Styled.ContainerItemInfo>
-              <Styled.ContainerItemInfoTitle>
-                {snacks && snacks[0].title}
-              </Styled.ContainerItemInfoTitle>
-              <Styled.ContainerItemInfoPrice>
-                от {snacks && snacks[0].price} ₽
-              </Styled.ContainerItemInfoPrice>
+              <Styled.ContainerItemInfoTitle>{snacks && snacks[0].title}</Styled.ContainerItemInfoTitle>
+              <Styled.ContainerItemInfoPrice>от {snacks && snacks[0].price} ₽</Styled.ContainerItemInfoPrice>
             </Styled.ContainerItemInfo>
           </Styled.ContainerItem>
 
-          <Styled.ContainerItem
-            onClick={() => selectedProduct(snacks && snacks[3].id)}
-          >
+          <Styled.ContainerItem onClick={() => selectedProduct(snacks && snacks[3].id, 'snacks')}>
             <Styled.ContainerItemPicture>
               <Styled.ContainerItemPictureImg src={snacks && snacks[3].image} />
             </Styled.ContainerItemPicture>
             <Styled.ContainerItemInfo>
-              <Styled.ContainerItemInfoTitle>
-                {snacks && snacks[3].title}
-              </Styled.ContainerItemInfoTitle>
-              <Styled.ContainerItemInfoPrice>
-                от {snacks && snacks[3].price} ₽
-              </Styled.ContainerItemInfoPrice>
+              <Styled.ContainerItemInfoTitle>{snacks && snacks[3].title}</Styled.ContainerItemInfoTitle>
+              <Styled.ContainerItemInfoPrice>от {snacks && snacks[3].price} ₽</Styled.ContainerItemInfoPrice>
             </Styled.ContainerItemInfo>
           </Styled.ContainerItem>
         </Styled.Container>
@@ -96,13 +73,7 @@ const OftenOrdered: FC = () => {
         <OftenOrderedSkeleton />
       )}
 
-      {product && (
-        <ProductModal
-          active={activeModal}
-          setActive={setActiveModal}
-          product={product}
-        />
-      )}
+      {product && <ProductModal active={activeModal} setActive={setActiveModal} product={product} />}
     </Styled.Root>
   )
 }
