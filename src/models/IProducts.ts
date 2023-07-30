@@ -17,4 +17,6 @@ export interface IProducts {
   image?: string
   price: number
   quantity?: number
+  selectedSize?: 'small' | 'medium' | 'large'
+  selectedDough?: 'traditional' | 'thin'
 }

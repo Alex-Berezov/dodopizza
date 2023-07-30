@@ -15,7 +15,12 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<IProducts>) => {
-      const product = state.items.find((item) => item.id === action.payload.id)
+      const product = state.items.find(
+        (item) =>
+          item.id === action.payload.id &&
+          item.selectedSize === action.payload.selectedSize &&
+          item.selectedDough === action.payload.selectedDough,
+      )
 
       if (product) {
         if (product.quantity !== undefined) {
@@ -27,13 +32,51 @@ export const cartSlice = createSlice({
         state.items.push({ ...action.payload, quantity: 1 })
       }
     },
-    removeFromCart: (state, action: PayloadAction<number>) => {
-      state.items = state.items.filter((item) => item.id !== action.payload)
+    increaseQuantity: (state, action: PayloadAction<{ id: number; selectedSize: string; selectedDough: string }>) => {
+      const product = state.items.find(
+        (item) =>
+          item.id === action.payload.id &&
+          item.selectedSize === action.payload.selectedSize &&
+          item.selectedDough === action.payload.selectedDough,
+      )
+
+      if (product && product.quantity) {
+        product.quantity += 1
+      }
+    },
+    decreaseQuantity: (state, action: PayloadAction<{ id: number; selectedSize: string; selectedDough: string }>) => {
+      const product = state.items.find(
+        (item) =>
+          item.id === action.payload.id &&
+          item.selectedSize === action.payload.selectedSize &&
+          item.selectedDough === action.payload.selectedDough,
+      )
+
+      if (product && product.quantity && product.quantity > 1) {
+        product.quantity -= 1
+      } else {
+        return state
+      }
+    },
+
+    removeFromCart: (state, action: PayloadAction<{ id: number; selectedSize: string; selectedDough: string }>) => {
+      const newItems = state.items.filter(
+        (item) =>
+          item.id !== action.payload.id ||
+          item.selectedSize !== action.payload.selectedSize ||
+          item.selectedDough !== action.payload.selectedDough,
+      )
+
+      if (newItems.length !== state.items.length) {
+        state.items = newItems
+      } else {
+        return state
+      }
     },
   },
 })
 
-export const { addToCart, removeFromCart } = cartSlice.actions
+export const { addToCart, decreaseQuantity, increaseQuantity, removeFromCart } = cartSlice.actions
 
 export const selectCartItems = (state: RootState) => state.cart.items
 

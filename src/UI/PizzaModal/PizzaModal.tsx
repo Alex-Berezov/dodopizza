@@ -17,10 +17,13 @@ interface IPizzaDough {
   [key: string]: string | undefined
 }
 
+type PizzaSizesType = 'small' | 'medium' | 'large'
+type PizzaDoughType = 'traditional' | 'thin'
+
 const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
   const dispatch = useDispatch()
-  const [selectedSize, setSelectedSize] = useState('medium')
-  const [selectedDough, setSelectedDough] = useState('traditional')
+  const [selectedSize, setSelectedSize] = useState<PizzaSizesType>('medium')
+  const [selectedDough, setSelectedDough] = useState<PizzaDoughType>('traditional')
   const [disabledThin, setDisabledThin] = useState(false)
   const [pizzaSizes, setPizzaSizes] = useState<IPizzaSizes>({
     ...product.pizzaSizes,
@@ -49,7 +52,7 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
   }, [product, pizzaImages.medium])
 
   const handleSelectedSize = useCallback(
-    (size: string) => {
+    (size: PizzaSizesType) => {
       setSelectedSize(size)
 
       if (size === 'small') {
@@ -81,18 +84,11 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
         setImage(pizzaImages.largeT)
       }
     },
-    [
-      pizzaImages.large,
-      pizzaImages.largeT,
-      pizzaImages.medium,
-      pizzaImages.mediumT,
-      pizzaImages.small,
-      selectedDough,
-    ]
+    [pizzaImages.large, pizzaImages.largeT, pizzaImages.medium, pizzaImages.mediumT, pizzaImages.small, selectedDough],
   )
 
   const handleSelectedDough = useCallback(
-    (dough: string) => {
+    (dough: PizzaDoughType) => {
       if (selectedSize === 'small') {
         setSelectedDough('traditional')
       } else {
@@ -112,20 +108,14 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
         setImage(pizzaImages.large)
       }
     },
-    [
-      pizzaImages.large,
-      pizzaImages.largeT,
-      pizzaImages.medium,
-      pizzaImages.mediumT,
-      selectedSize,
-    ]
+    [pizzaImages.large, pizzaImages.largeT, pizzaImages.medium, pizzaImages.mediumT, selectedSize],
   )
 
-  const handleAddToCart  = () => {
+  const handleAddToCart = () => {
     const productToCart = {
       ...product,
       selectedSize,
-      selectedDough
+      selectedDough,
     }
 
     dispatch(addToCart(productToCart))
@@ -148,59 +138,55 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
           <Styled.SizeSelector>
             <Styled.SizeSelectButton sizeSelected={selectedSize} />
             <Styled.SizeRadio
-              type='radio'
-              id='small'
-              value='1'
+              type="radio"
+              id="small"
+              value="1"
               checked={selectedSize === 'small'}
               onChange={() => handleSelectedSize('small')}
             />
-            <Styled.SizeLabel htmlFor='small'>Маленькая</Styled.SizeLabel>
+            <Styled.SizeLabel htmlFor="small">Маленькая</Styled.SizeLabel>
             <Styled.SizeRadio
-              type='radio'
-              id='medium'
-              value='2'
+              type="radio"
+              id="medium"
+              value="2"
               checked={selectedSize === 'medium'}
               onChange={() => handleSelectedSize('medium')}
             />
-            <Styled.SizeLabel htmlFor='medium'>Средняя</Styled.SizeLabel>
+            <Styled.SizeLabel htmlFor="medium">Средняя</Styled.SizeLabel>
             <Styled.SizeRadio
-              type='radio'
-              id='large'
-              value='3'
+              type="radio"
+              id="large"
+              value="3"
               checked={selectedSize === 'large'}
               onChange={() => handleSelectedSize('large')}
             />
-            <Styled.SizeLabel htmlFor='large'>Большая</Styled.SizeLabel>
+            <Styled.SizeLabel htmlFor="large">Большая</Styled.SizeLabel>
           </Styled.SizeSelector>
         </Styled.SizeSelectorBlock>
         <Styled.DoughSelectorBlock>
           <Styled.DoughSelector>
             <Styled.DoughSelectButton doughSelected={selectedDough} />
             <Styled.DoughRadio
-              type='radio'
-              id='traditional'
-              value='1'
+              type="radio"
+              id="traditional"
+              value="1"
               checked={selectedDough === 'traditional'}
               onChange={() => handleSelectedDough('traditional')}
             />
-            <Styled.DoughLabel htmlFor='traditional'>
-              Традиционное
-            </Styled.DoughLabel>
+            <Styled.DoughLabel htmlFor="traditional">Традиционное</Styled.DoughLabel>
             <Styled.DoughRadio
-              type='radio'
-              id='thin'
-              value='1'
+              type="radio"
+              id="thin"
+              value="1"
               checked={selectedDough === 'thin'}
               onChange={() => handleSelectedDough('thin')}
             />
-            <Styled.DoughLabel htmlFor='thin' isDisabledThin={disabledThin}>
+            <Styled.DoughLabel htmlFor="thin" isDisabledThin={disabledThin}>
               Тонкое
             </Styled.DoughLabel>
           </Styled.DoughSelector>
         </Styled.DoughSelectorBlock>
-        <AddToCartButton onClick={handleAddToCart}>
-          Добавить в корзину за {product.price} ₽
-        </AddToCartButton>
+        <AddToCartButton onClick={handleAddToCart}>Добавить в корзину за {product.price} ₽</AddToCartButton>
       </Styled.PizzaInfoBlock>
     </Styled.Pizza>
   )
