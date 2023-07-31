@@ -59,8 +59,11 @@ const CartItem: FC<CartItemProps> = ({ cartItems }) => {
               <Styled.OrderInfo>
                 <Styled.OrderInfoTitle>{product.title}</Styled.OrderInfoTitle>
                 <Styled.OrderInfoParam>
-                  Средняя {product.selectedSize && product.pizzaSizes ? product.pizzaSizes[product.selectedSize] : ''}{' '}
-                  см, {product.selectedDough ? product.pizzaDough?.[product.selectedDough] : ''}, традиционное тесто
+                  {product.isPizza
+                    ? `Средняя ${
+                        product.selectedSize && product.pizzaSizes ? product.pizzaSizes[product.selectedSize] : ''
+                      } см, ${product.selectedDough ? product.pizzaDough?.[product.selectedDough] : ''} тесто`
+                    : ''}
                 </Styled.OrderInfoParam>
               </Styled.OrderInfo>
             </Styled.Header>

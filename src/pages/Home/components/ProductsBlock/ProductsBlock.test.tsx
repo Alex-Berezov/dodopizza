@@ -11,7 +11,7 @@ const renderProductsBlock = (products: IProducts[] | []) => {
   return render(
     <ThemeProvider theme={theme}>
       <ProductsBlock />
-    </ThemeProvider>
+    </ThemeProvider>,
   )
 }
 

@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const Root = styled.div``
+export const Root = styled.div`
+  height: 80vh;
+  overflow: auto;
+`
 
 export const CartItems = styled.div``
 

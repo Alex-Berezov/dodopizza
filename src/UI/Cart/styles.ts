@@ -21,7 +21,7 @@ export const ModalWrapper = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
   right: -5px;
-  width: 360px;
+  width: 390px;
   height: 100%;
   background: ${(props) => props.theme.colors.liteGrey};
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);

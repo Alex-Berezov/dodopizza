@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import * as Styled from './styles'
 import { AddToCartButton } from '../AddToCartButton'
 
@@ -12,12 +12,17 @@ interface SimpleProductModalProps {
 
 const SimpleProductModal: FC<SimpleProductModalProps> = ({ product }) => {
   const dispatch = useDispatch()
-  const handleAddToCart  = () => {
+  const [isProductAdded, setProductAdded] = useState(false)
+
+  const handleAddToCart = () => {
     const productToCart = {
       ...product,
     }
 
     dispatch(addToCart(productToCart))
+
+    setProductAdded(true)
+    setTimeout(() => setProductAdded(false), 3000)
   }
 
   return (
@@ -30,7 +35,7 @@ const SimpleProductModal: FC<SimpleProductModalProps> = ({ product }) => {
         <Styled.Characteristics>{product.weight} г</Styled.Characteristics>
         <Styled.Description>{product.description}</Styled.Description>
         <AddToCartButton onClick={handleAddToCart}>
-          Добавить в корзину за {product.price} ₽
+          {isProductAdded ? 'Товар добавлен в корзину' : `Добавить в корзину за ${product.price} ₽`}
         </AddToCartButton>
       </Styled.SimpleProductInfoBlock>
     </Styled.SimpleProduct>

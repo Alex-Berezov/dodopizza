@@ -33,6 +33,7 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
   })
   const [pizzaImages, setPizzaImages] = useState({ ...product.pizzasImages })
   const [image, setImage] = useState(pizzaImages.medium)
+  const [isPizzaAdded, setPizzaAdded] = useState(false)
 
   useEffect(() => {
     setPizzaSizes({ ...product.pizzaSizes })
@@ -119,6 +120,9 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
     }
 
     dispatch(addToCart(productToCart))
+
+    setPizzaAdded(true)
+    setTimeout(() => setPizzaAdded(false), 3000)
   }
 
   return (
@@ -186,7 +190,9 @@ const PizzaModal: FC<PizzaModalProps> = ({ product }) => {
             </Styled.DoughLabel>
           </Styled.DoughSelector>
         </Styled.DoughSelectorBlock>
-        <AddToCartButton onClick={handleAddToCart}>Добавить в корзину за {product.price} ₽</AddToCartButton>
+        <AddToCartButton onClick={handleAddToCart}>
+          {isPizzaAdded ? 'Пицца добавлена в корзину' : `Добавить в корзину за ${product.price} ₽`}
+        </AddToCartButton>
       </Styled.PizzaInfoBlock>
     </Styled.Pizza>
   )
