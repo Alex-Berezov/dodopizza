@@ -39,8 +39,8 @@ const CartItem: FC<CartItemProps> = ({ cartItems }) => {
                 if (product.selectedSize && product.selectedDough) {
                   DeleteItem({
                     id: product.id,
-                    selectedSize: product.selectedSize!,
-                    selectedDough: product.selectedDough!,
+                    selectedSize: product.selectedSize,
+                    selectedDough: product.selectedDough,
                   })
                 }
               }}
@@ -76,8 +76,8 @@ const CartItem: FC<CartItemProps> = ({ cartItems }) => {
                       if (product.selectedSize && product.selectedDough) {
                         DecreaseQuantity({
                           id: product.id,
-                          selectedSize: product.selectedSize!,
-                          selectedDough: product.selectedDough!,
+                          selectedSize: product.selectedSize,
+                          selectedDough: product.selectedDough,
                         })
                       }
                     }}
@@ -92,8 +92,8 @@ const CartItem: FC<CartItemProps> = ({ cartItems }) => {
                       if (product.selectedSize && product.selectedDough) {
                         IncreaseQuantity({
                           id: product.id,
-                          selectedSize: product.selectedSize!,
-                          selectedDough: product.selectedDough!,
+                          selectedSize: product.selectedSize,
+                          selectedDough: product.selectedDough,
                         })
                       }
                     }}

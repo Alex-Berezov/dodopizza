@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import * as Styled from './styles'
 import { AddToCartButton } from '../AddToCartButton'
 import { IProducts } from '../../models/IProducts'

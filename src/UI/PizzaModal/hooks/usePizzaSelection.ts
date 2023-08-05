@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, FC } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { IProducts } from '../../../models/IProducts'
 
 type PizzaSizesType = 'small' | 'medium' | 'large'
