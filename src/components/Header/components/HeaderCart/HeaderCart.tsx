@@ -13,20 +13,11 @@ interface HeaderCartProps {
 
 const HeaderCart: FC<HeaderCartProps> = ({ cartIsOpen, setCartIsOpen }) => {
   const cartItems = useSelector(selectCartItems)
-
-  console.log('====================================')
-  console.log('cartItems >>', cartItems)
-  console.log('====================================')
-
   const totalItems = cartItems.reduce((total, item) => total + (item.quantity ?? 0), 0)
   const totalPrice = cartItems.reduce((total, item) => total + item.price * (item.quantity ?? 0), 0)
 
-  console.log('====================================')
-  console.log('totalItems >>', totalItems)
-  console.log('====================================')
-
   const heandleClick = () => {
-    console.log('Click')
+    alert('Дальнейшую функциональность я не стал разрабатывать.')
   }
 
   return (

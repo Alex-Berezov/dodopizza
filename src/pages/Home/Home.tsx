@@ -8,7 +8,7 @@ const Home: FC = () => {
   return (
     <Styled.Root>
       <Header />
-      <OftenOrdered />
+      {/* <OftenOrdered /> */}
       <ProductsBlock />
     </Styled.Root>
   )
